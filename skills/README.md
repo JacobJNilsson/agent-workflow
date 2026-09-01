@@ -14,6 +14,7 @@ when a prompt matches, or when I type `/<name>`.
 | `pr-description` | Short PR text, why and what, no file lists. |
 | `git-why` | Read the commit reasoning behind a line instead of a blame table. |
 | `git-rebase` | Interactive rebase through `GIT_SEQUENCE_EDITOR`, no editor. |
+| `commit-gate` | A tracked pre-commit hook that blocks a commit when lint, build, or tests fail. One install target, same targets as CI. |
 
 Third party skills that I use but do not copy here:
 
