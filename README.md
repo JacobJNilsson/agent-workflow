@@ -59,7 +59,7 @@ The `way-of-working` skill is the spine. For a task that changes code:
    autosquash when the review is green.
 
 Skills that carry each step: `way-of-working`, `simplicity-check`,
-`review-loop`, `cc-copy-review`, `commit-message`, `pr-description`,
+`review-loop`, `copy-review`, `commit-message`, `pr-description`,
 `git-rebase`. See `skills/README.md` for the full list.
 
 ## The rules that matter most

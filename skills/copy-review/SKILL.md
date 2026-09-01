@@ -1,9 +1,9 @@
 ---
-name: cc-copy-review
-description: Reviews the lasting prose in CarbonCloud work - code comments, commit messages, PR descriptions, and spec text - against the shared writing rules and the product glossary. TRIGGER when the user asks to copy-review, prose-review, or check the wording of comments, commits, PR bodies, or specs. SKIP for website or marketing copy - use the website-copy-review skill for those.
+name: copy-review
+description: Reviews the lasting prose in a change - code comments, commit messages, PR descriptions, and spec text - against the writing rules and the product glossary. TRIGGER when the user asks to copy-review, prose-review, or check the wording of comments, commits, PR bodies, or specs. SKIP for website or marketing copy.
 ---
 
-# CarbonCloud copy review
+# Copy review
 
 Review the words that outlive the conversation: code comments, commit
 messages, PR descriptions, and spec text. Report findings with concrete
@@ -12,19 +12,22 @@ the user asked for a review-and-fix pass.
 
 ## The glossary is the vocabulary
 
-The product's terms live in one place:
+If the workspace has a spec repo, its glossary holds the product's terms.
+The workspace instructions name the repo. A project skill may bind this
+review to a specific glossary and to extra term lists. Read the glossary
+before reviewing.
 
-    /Users/jacobnilsson/Developer/carboncloud/cc-wiki/GLOSSARY.md
+Every term in the reviewed text must match the glossary. One word has one
+meaning. A second name for a glossary term is a finding. A new term that
+the glossary lacks is a finding too: the fix is to add the term to the
+glossary, not to define it inline.
 
-Read it before reviewing. Every term in the reviewed text must match the
-glossary. One word has one meaning. A second name for a glossary term is a
-finding. A new term that the glossary lacks is a finding too: the fix is to
-add the term to the glossary, not to define it inline.
+Test each sentence that uses a glossary term: replace the term with its
+definition and read the sentence again. If it stops making sense, the
+sentence misuses the concept, and that is a finding.
 
-Feature specs may fix extra terms of their own. For transport work, read
-`features/transport/specs/route-structure.md` and `branching-routes.md` in
-the same repo. The fixed transport terms: branch (structural part), split
-shipment (product view), parallel route (UI row).
+Without a glossary, hold the text to its own vocabulary. Two names for one
+thing is still a finding.
 
 ## Language rules
 
@@ -59,9 +62,9 @@ warning when one applies, then a short why. No decisions section, no
 justification of decisions, no attribution of decisions to a person. The
 body speaks with the contributor's own voice.
 
-**Spec text.** Follows the cc-wiki repo's AGENTS.md. Present
-tense, decisions attributed and dated, open questions marked open. Terms
-come from the glossary.
+**Spec text.** Follows the spec repo's own writing rules. Present tense,
+behaviour stated as fact, open questions marked open. Terms come from the
+glossary.
 
 ## Report shape
 
