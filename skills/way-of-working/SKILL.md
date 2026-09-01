@@ -11,7 +11,7 @@ user says so.
 ## 1. Spec together
 
 Write the spec with the user, iterating in chat. Draft product behaviour
-for the cc-wiki repo. While the spec forms, spawn
+for the spec repo, if the workspace has one. While the spec forms, spawn
 investigation agents to map the current state. Always pass an explicit
 model override, never run agents on Fable. Feed the findings back into the
 spec before it settles.
@@ -21,7 +21,7 @@ spec before it settles.
 When the user calls the spec good, spawn implementation agents in separate
 git worktrees branched off origin/main. The agents write the code and
 create the commits. Every brief carries the repo's AGENTS.md and style
-guide rules, the relevant GLOSSARY.md terms from cc-wiki,
+guide rules, the relevant glossary terms from the spec repo,
 and the repo's test conventions. The harness loads none of that for
 subagents.
 

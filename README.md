@@ -21,7 +21,7 @@ smaller scope.
 | Layer | File | What it holds |
 | --- | --- | --- |
 | Global | `~/.claude/CLAUDE.md`, `~/AGENTS.md` | Rules for every project. Model policy, PR comment ban, writing rules. |
-| Workspace | `~/Developer/carboncloud/CLAUDE.md` and `AGENTS.md` | Points the agent at each repo's own guide and at cc-wiki. |
+| Workspace | `~/Developer/carboncloud/CLAUDE.md` and `AGENTS.md` | Points the agent at each repo's own guide and at the spec repo. |
 | Repo | `<repo>/AGENTS.md`, `STYLEGUIDE.md` | Commands, architecture, review rules. `CLAUDE.md` in each repo is one line, `@AGENTS.md`. Not copied here, read them in each repo. |
 | Skills | `~/.agents/skills/<name>/SKILL.md` | Reusable procedures the agent runs on a trigger phrase. |
 | Agents | `~/.agents/agents/<name>.agent.md` | Personas for a subagent. |
@@ -41,8 +41,7 @@ Two conventions make the layers hold together:
 The `way-of-working` skill is the spine. For a task that changes code:
 
 1. **Spec together.** Write the spec in chat. Draft product behaviour for
-   the `cc-wiki` repo. Spawn investigation agents while the
-   spec forms.
+   the spec repo. Spawn investigation agents while the spec forms.
 2. **Implement in worktrees.** Worker agents write the code in their own
    git worktrees off `origin/main`. Each brief carries the repo's
    `AGENTS.md`, the style guide, the glossary terms, and the test rules.
@@ -87,15 +86,15 @@ Each rule links to the file that states it.
 - **The spec is the reference.** Workers cannot amend the document they
   are judged against. A needed spec change goes up to me.
 
-## The cc-wiki repo
+## The spec repo
 
-`cc-wiki` holds what the product should do and the words we
-use for it. It is written for agents and for the team. Before an agent
-writes lasting text, it reads `GLOSSARY.md`. When review feedback settles
-a term, the term goes into the glossary in the same session. Other repos
-never mention the spec repo. A PR states the reason for a behaviour in
-its own text. The repo's own `AGENTS.md` sets the structure and the
-language rules.
+One repo in the workspace holds what the product should do and the words
+we use for it. The workspace `AGENTS.md` names it. It is written for
+agents and for the team. Before an agent writes lasting text, it reads
+`GLOSSARY.md`. When review feedback settles a term, the term goes into the
+glossary in the same session. Other repos never mention the spec repo. A
+PR states the reason for a behaviour in its own text. The repo's own
+`AGENTS.md` sets the structure and the language rules.
 
 ## Memory
 
@@ -123,7 +122,7 @@ and `memory/examples/` for real entries.
 3. Copy the skills you want into `~/.agents/skills/` and symlink
    `~/.claude/skills` to that directory.
 4. Copy `agents/` into `~/.agents/agents/`.
-5. Check out `cc-wiki` next to the product repos. The
-   workspace `AGENTS.md` expects it there.
+5. Check out your spec repo next to the product repos and name it in
+   the workspace `AGENTS.md`.
 6. Start a session in the workspace root and run `/way-of-working` on the
    next task.
