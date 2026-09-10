@@ -15,13 +15,24 @@ description: Writes PR titles and descriptions focused on why a change exists. T
 Focus on **why** this change exists and **what** it accomplishes at a product or
 system level.
 
-- State the core problem or goal.
-- If the PR is part of a larger effort, explain where it fits.
+- Open with a merge-order or deploy warning when one applies. Skip a warning
+  that restates the obvious.
+- Lead with the problem, stated so a reader who does not know the code can
+  weigh the change against it. Then the mechanism. "X now does Y" with the
+  reason in a subordinate clause is not a why.
+- If the PR is part of a larger effort, say where it fits.
 - Do not enumerate commits, files changed, or implementation details.
-- Only mention code-level details when a non-obvious tradeoff, design decision,
-  or dependency quirk needs explanation.
+- Mention code-level details only for a non-obvious tradeoff or dependency
+  quirk.
+- No decisions section, no justification of decisions, no attribution of a
+  decision to a person. The body speaks with the contributor's own voice.
 
-Keep it short. A few sentences is usually enough.
+Keep it to about 1000 characters. Write it, then delete every sentence the
+diff already proves.
+
+The user edits descriptions by hand. Before you rewrite a body, fetch the
+current one and keep every difference from your last version. Those
+differences are deliberate edits.
 
 ## Audience
 
@@ -45,10 +56,6 @@ the repository, and give the reader a way to reproduce it.
 
 ## Language
 
-Write the title and the description in ASD-STE100 Simplified Technical English.
-
-- Use the active voice.
-- Use short sentences: maximum 25 words.
-- Use one word for one meaning. Use only approved words where possible.
-- Do not use idioms, slang, or unnecessary jargon.
-- Keep paragraphs short: maximum 6 sentences.
+Follow the `technical-writing` and `unslop` skills. Active voice, one
+thought per sentence, plain words, one word for one meaning. Keep paragraphs
+short: maximum 6 sentences.

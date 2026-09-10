@@ -13,9 +13,8 @@ Each commit should tell a story.
 - Subject: imperative mood; start capitalized; no trailing period.
 - Body: why + what (not how); include domain context if needed.
 - Tests: only mention when the "why" is about tests.
-- Language: write the subject and the body in ASD-STE100 Simplified Technical
-  English. Use the active voice. Use short sentences (maximum 20 words). Use
-  one word for one meaning. Do not use idioms or unnecessary jargon.
+- Language: follow the `technical-writing` and `unslop` skills. Active
+  voice, one thought per sentence, plain words, one word for one meaning.
 
 ## Audience
 

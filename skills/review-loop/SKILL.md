@@ -171,13 +171,14 @@ When the review passes:
 - **Fix valid nits.** If the reviewer raises a nit that is actionable and
   improves the code, fix it. Only ignore nits that are purely subjective style
   preferences with no clear benefit.
-- **Check the reviewed language against ASD-STE100.** Tell each spawned
-  `/review` agent to check that the prose in the reviewed changes obeys
-  ASD-STE100 Simplified Technical English. This applies to documentation,
-  comments, user-facing text, commit messages, and the PR description. The
-  reviewer must report a violation as a finding, so the fix step corrects it.
-  Examples of violations: passive voice, sentences with more than 25 words,
-  one word with more than one meaning, idioms, and unnecessary jargon.
+- **Check the reviewed language against the writing standard.** Paste the
+  `technical-writing` and `unslop` skills into each spawned `/review` agent's
+  brief and tell it to check the prose in the reviewed changes against them.
+  This applies to documentation, comments, user-facing text, commit messages,
+  and the PR description. The reviewer must report a violation as a finding,
+  so the fix step corrects it. Examples of violations: passive voice,
+  sentences with more than 25 words, one word with more than one meaning,
+  idioms, unnecessary jargon, and the AI tells that `unslop` lists.
 - **Check the prose against the cold reader test.** Tell each spawned `/review`
   agent to read the PR description and the commit messages as a person who did
   not see the conversation that produced them. The reviewer must report as a
