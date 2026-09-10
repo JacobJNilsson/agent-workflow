@@ -37,11 +37,23 @@ the change, with the user where it moves decided behaviour.
 Every brief also carries these commit rules. A mechanical rename goes in
 its own commit before the change that needs it: same signatures, callers
 follow, no behaviour change, so a reviewer can skip it. A commit that
-renames and changes at once cannot be reviewed that way. Every commit
-builds and passes lint on its own, because a rebase merge lands each one
-on main as it is. Lint cleanup of files the change touches goes in a
-separate companion PR that merges first, never inside the change. Code
-comments are one sentence, two at most.
+renames and changes at once cannot be reviewed that way. A rename of
+anything that exists on main goes in the rename commit, even when the
+feature commit is the one that made the word matter. A commit subject that
+needs "and" is two commits. Every commit builds and passes lint on its own,
+because a rebase merge lands each one on main as it is. Infrastructure,
+test helpers, lint cleanup, and pure refactors go in their own PRs that
+merge before the feature, never inside the change. Code comments are one
+sentence, two at most.
+
+A schema migration ships in two steps. The expand step ships with the new
+code and only adds: tables, nullable columns, batched backfills, dual
+writes where both builds must write. The new build reads the new place
+with a fallback. The contract step ships in a later PR, after the rollout
+is done: drop the old columns, set not null, remove the fallback. During a
+rollout the old build and the new build run side by side against one
+database, so a drop in step one breaks users. Each PR body states the
+deploy order.
 
 A brief for a run longer than one PR, or for unattended work, names a
 `decision-log` file. The worker records each fork, assumption, and revert
@@ -93,8 +105,20 @@ differences are the user's deliberate edits.
 
 ## 6. Review feedback
 
-Land review fixes as fixup commits so the reviewer sees the increments. Do
-not rewrite history while a review is in progress. The moment the review
-is approved, rebase onto main, autosquash, verify the tree, and force
-push. Do not wait for a go. A merged fixup commit lands on main as it is,
-and main is never rewritten.
+Before a human review starts, changes to an open PR are amends and force
+pushes. Once a human review has started, every change that answers it is a
+`fixup! <reviewed subject>` commit with a body that says what it answers,
+so the reviewer sees each delta. Never amend the reviewed commit itself. A
+review fix that touches code the PR did not create is its own commit, in a
+PR that merges before. When a review reshapes the PR, squash and re-split
+into readable commits on the user's word, then return to fixups.
+
+Do not push while an automated review round is still running. Batch the
+fixes locally and push once after the last round reports. Push only the
+branch whose PR is being worked. Downstream branches in a chain stay local
+until their turn, because every push runs CI.
+
+The moment the review is approved, rebase onto main, autosquash, verify
+the tree, and force push. Do not wait for a go. A fixup commit that reaches
+main lands as it is, and main is never rewritten. While fixups are pending,
+never call the PR ready, and say that it must not merge before the squash.
