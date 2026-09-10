@@ -33,15 +33,17 @@ Two conventions make the layers hold together:
 
 - `CLAUDE.md` files only contain `@AGENTS.md`. The rules live in
   `AGENTS.md`, so other tools read the same file.
-- `~/.claude/skills` is a symlink to `~/.agents/skills`. One skill
-  directory serves every tool.
+- `~/.claude/skills` is a symlink to `~/.agents/skills`, and each entry
+  there is a symlink into `skills/` in this repo. One checkout serves
+  every tool, and an edit in either place is the same edit.
 
 ## The workflow
 
 The `way-of-working` skill is the spine. For a task that changes code:
 
-1. **Spec together.** Write the spec in chat. Draft product behaviour for
-   the spec repo. Spawn investigation agents while the spec forms.
+1. **Spec together.** Grill the open decisions in numbered rounds, draft
+   product behaviour for the spec repo, spawn investigation agents while
+   the spec forms.
 2. **Implement in worktrees.** Worker agents write the code in their own
    git worktrees off `origin/main`. Each brief carries the repo's
    `AGENTS.md`, the style guide, the glossary terms, and the test rules.
@@ -59,8 +61,8 @@ The `way-of-working` skill is the spine. For a task that changes code:
    autosquash when the review is green.
 
 Skills that carry each step: `way-of-working`, `simplicity-check`,
-`review-loop`, `copy-review`, `commit-message`, `pr-description`,
-`git-rebase`. See `skills/README.md` for the full list.
+`grilling`, `review-loop`, `copy-review`, `technical-writing`, `unslop`,
+`decision-log`, `commit-message`, `pr-description`, `git-rebase`. See `skills/README.md` for the full list.
 
 ## The rules that matter most
 
@@ -76,9 +78,10 @@ Each rule links to the file that states it.
 - **Pin the model on every subagent.** Subagents inherit the session
   model. A large fan-out on the top model burns the usage limit. See
   `instructions/global/CLAUDE.md`.
-- **Lasting text follows ASD-STE100.** Active voice, at most 25 words
-  per sentence, one word for one meaning, no em-dashes, no semicolons.
-  This covers comments, commits, PR text, and specs. Chat is exempt.
+- **Lasting text follows the `technical-writing` skill.** Active voice,
+  at most 25 words per sentence, one word for one meaning, no em-dashes,
+  no semicolons. This covers comments, commits, PR text, and specs. The
+  `unslop` skill covers chat too.
 - **The reviewer never sees earlier rounds.** Each review is a fresh
   agent with no history. This keeps the review impartial.
 - **Ask whether the code should exist before asking whether it is
@@ -110,7 +113,7 @@ and `memory/examples/` for real entries.
   more skills.
 - Plugins: `gopls-lsp`, `typescript-lsp`, `figma`, `understand-anything`.
 - `git-why`: prints the commit messages behind a line range instead of a
-  blame table. https://github.com/JacobJNilsson/git-why
+  blame table. The `why` skill bundles it. https://github.com/JacobJNilsson/git-why
 
 ## Adopt it
 
@@ -119,8 +122,8 @@ and `memory/examples/` for real entries.
    model policy to match your plan.
 2. Copy `instructions/workspace/AGENTS.md` to `<workspace>/AGENTS.md` and
    `instructions/workspace/CLAUDE.md` to `<workspace>.claude/CLAUDE.md`
-3. Copy the skills you want into `~/.agents/skills/` and symlink
-   `~/.claude/skills` to that directory.
+3. Symlink the skills you want from `skills/` into `~/.agents/skills/`,
+   and symlink `~/.claude/skills` to that directory.
 4. Copy `agents/` into `~/.agents/agents/`.
 5. Check out your spec repo next to the product repos and name it in
    the workspace `AGENTS.md`.
