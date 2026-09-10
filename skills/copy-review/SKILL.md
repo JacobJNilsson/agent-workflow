@@ -31,14 +31,17 @@ thing is still a finding.
 
 ## Language rules
 
-All lasting text follows ASD-STE100 Simplified Technical English:
+The `technical-writing` skill is the standard for all lasting text. The
+`unslop` skill lists the AI tells. Read both before reviewing. A reviewer
+that runs as a subagent gets both pasted into its brief.
 
-- Active voice.
-- Max 25 words per sentence. Count, do not guess.
-- One word for one meaning.
-- No idioms. No unnecessary jargon. Plain words.
-- No em-dashes. Use a comma, a full stop, or brackets.
-- No semicolons in prose. Code semicolons are fine.
+Checks a review adds on top of the standard:
+
+- Count words per sentence. Do not guess. The limit is 25, and 20 for an
+  instruction.
+- Grep for the words that compete for one meaning and count them. Keep
+  the one in wider use and replace the rest.
+- No em-dashes and no semicolons in prose. Code semicolons are fine.
 
 ## Per text kind
 
