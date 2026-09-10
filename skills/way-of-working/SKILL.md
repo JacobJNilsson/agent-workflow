@@ -10,11 +10,14 @@ user says so.
 
 ## 1. Spec together
 
-Write the spec with the user, iterating in chat. Draft product behaviour
-for the spec repo, if the workspace has one. While the spec forms, spawn
-investigation agents to map the current state. Always pass an explicit
-model override, never run agents on Fable. Feed the findings back into the
-spec before it settles.
+Write the spec with the user, iterating in chat. Run the `grilling` skill:
+ask the open decisions in numbered rounds with a recommended answer each,
+and fetch the facts yourself. Draft product behaviour for the spec repo, if
+the workspace has one. While the spec forms, spawn investigation agents to
+map the current state. Always pass an explicit model override, never run
+agents on Fable. Feed the findings back into the spec before it settles.
+The spec is good when the grilling frontier is empty and the user confirms
+the summary.
 
 ## 2. Implement in worktrees
 
@@ -39,6 +42,10 @@ builds and passes lint on its own, because a rebase merge lands each one
 on main as it is. Lint cleanup of files the change touches goes in a
 separate companion PR that merges first, never inside the change. Code
 comments are one sentence, two at most.
+
+A brief for a run longer than one PR, or for unattended work, names a
+`decision-log` file. The worker records each fork, assumption, and revert
+there, so the user reviews a table instead of a transcript.
 
 Work test-driven as far as the work allows. Write the test from the spec,
 watch it fail, then write the code that makes it pass. A test written
