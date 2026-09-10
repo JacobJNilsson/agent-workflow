@@ -75,6 +75,7 @@ Source: developers.google.com/style, fetched 2026-07-18.
 - Keep "the" and "a": "Remove backup file" reads two ways. "Remove the backup file" reads one. Code comments are the one exception, see below.
 - Give each word one meaning and one job, then keep it. If "check" means inspect, don't also use it for restrain.
 - Pick one word per action and stick to it: "start", not "start" here and "initiate" there.
+- Say what happens to a removed thing: "the column is dropped", "the check is removed", "the contract PR deletes them". Never "goes", "gone", or "dies". "Go" is for movement.
 - Write procedures as direct commands, never as narration and never in the passive: "Install the component", not "the component must be installed".
 - Avoid "-ing" words where you can. They take too many grammatical jobs and breed misreadings.
 

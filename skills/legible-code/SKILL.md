@@ -36,6 +36,10 @@ serves that reader. Apply them while writing, and check them in review.
 
 - A public name says what the caller gets. `RecomputeUntilDone`, not
   `Drain`. `Footprints`, not `Prices`.
+- No abbreviations in SQL columns, identifiers, JSON fields, or enum
+  values. `share_basis_points`, not `share_bp`. `coefficient`, not
+  `coeff`. The accepted short forms stay: `ctx`, `tx`, `err`, `id`, and
+  `i` in a loop.
 - One word per concept across the package. When two words compete,
   count them, keep the one in wider use, and replace the other.
 - A comment states a fact the code does not show. It does not narrate,
