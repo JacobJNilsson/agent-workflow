@@ -45,7 +45,8 @@ Ask it these questions, in this order.
 
 2. **Does the repository, the standard library, or the language already do
    this?** Reimplementation is the most common source of avoidable code. Say
-   what already exists and where.
+   what already exists and where. Check what a dependency already returns
+   before an adapter computes it again from parts.
 
 3. **Would a smaller mechanism reach the same goal?** Compare against the
    simplest thing that could work. Name the smaller design, and say what it
@@ -59,7 +60,13 @@ Ask it these questions, in this order.
    implementation, or that proves the language works, carries cost and catches
    nothing.
 
-6. **What is the smallest change that satisfies the requirement?** State it,
+6. **Can a state change ride on a transition that already exists?** A flag
+   set inside the write that creates the row needs no second call, no repair
+   job for the crash between the two, and no setting for how long to wait.
+   Look for every separate step that could be a side effect of one step that
+   already runs.
+
+7. **What is the smallest change that satisfies the requirement?** State it,
    even when the answer is what was written.
 
 ## The rule that keeps this honest
