@@ -25,9 +25,8 @@ smaller scope.
 | Repo | `<repo>/AGENTS.md`, `STYLEGUIDE.md` | Commands, architecture, review rules. `CLAUDE.md` in each repo is one line, `@AGENTS.md`. Not copied here, read them in each repo. |
 | Skills | `~/.agents/skills/<name>/SKILL.md` | Reusable procedures the agent runs on a trigger phrase. |
 | Agents | `~/.agents/agents/<name>.agent.md` | Personas for a subagent. |
-| Memory | `~/.claude/projects/<project>/memory/` | Facts and feedback that persist between sessions. |
 
-Copies of the global and workspace layers live under `instructions/`. The repo layer stays in each repo. Skills, agents, and memory examples live under `skills/`, `agents/`, and `memory/`.
+Copies of the global and workspace layers live under `instructions/`. The repo layer stays in each repo. Skills and agents live under `skills/` and `agents/`.
 
 Two conventions make the layers hold together:
 
@@ -70,11 +69,10 @@ Each rule links to the file that states it.
 
 - **The main loop coordinates. Workers produce.** The agent never writes
   code in the main conversation. It investigates, designs, and briefs a
-  worker. See `memory/examples/delegate-code-to-workers.md`.
+  worker. See `skills/way-of-working/SKILL.md`, step 2.
 - **Briefs carry the repo guidance.** A subagent starts with an empty
   context. The harness loads no `AGENTS.md` for it. Every brief pastes
-  the relevant rules. See
-  `memory/examples/worker-briefs-carry-repo-guidance.md`.
+  the relevant rules. Same step.
 - **Pin the model on every subagent.** Subagents inherit the session
   model. A large fan-out on the top model burns the usage limit. See
   `instructions/global/CLAUDE.md`.
@@ -99,12 +97,13 @@ glossary in the same session. Other repos never mention the spec repo. A
 PR states the reason for a behaviour in its own text. The repo's own
 `AGENTS.md` sets the structure and the language rules.
 
-## Memory
+## Where a correction goes
 
-Claude Code keeps one file per fact under the project's memory directory,
-with an index in `MEMORY.md`. Feedback memories record a correction, why
-it was given, and how to apply it. See `memory/README.md` for the format
-and `memory/examples/` for real entries.
+A correction from the user or a reviewer becomes a rule in the skill that
+governs that step, so every future brief carries it. A rule that is
+specific to one repo goes in that repo's `AGENTS.md` or style guide. The
+agent's session memory is a holding place for task state, not a home for
+rules.
 
 ## Tools and plugins
 
