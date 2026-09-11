@@ -42,9 +42,14 @@ Types:
 - Anything that only matters to one conversation.
 - Secrets.
 
-## Examples
+## When a memory moves into a skill
 
-The files in `examples/` are real entries. `delegate-code-to-workers`
-and `worker-briefs-carry-repo-guidance` record the two corrections that
-shaped the workflow most. The rest show smaller rules: writing style,
-PR length, and git conventions.
+A memory is a holding place. When a correction turns out to be a general
+rule, it moves into the skill that governs that step and the memory is
+deleted. The writing rules, the PR length, the review loop rules, and the
+rule that the main loop never writes code all started as memories and now
+live in `technical-writing`, `pr-description`, and `way-of-working`. A
+rule that is specific to one repo belongs in that repo's `AGENTS.md` or
+style guide, not here. This repo keeps no example entries for that
+reason: an example that restates a skill goes stale the day the skill
+changes.

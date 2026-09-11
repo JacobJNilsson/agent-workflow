@@ -23,10 +23,16 @@ the summary.
 
 When the user calls the spec good, spawn implementation agents in separate
 git worktrees branched off origin/main. The agents write the code and
-create the commits. Every brief carries the repo's AGENTS.md and style
-guide rules, the relevant glossary terms from the spec repo,
-and the repo's test conventions. The harness loads none of that for
-subagents.
+create the commits. The main loop never writes or edits code itself, not
+even a one-line fix. It investigates, designs, briefs, and judges. Each
+worktree is removed after its branch is pushed.
+
+Every brief carries the repo's AGENTS.md and style guide rules, the
+relevant glossary terms from the spec repo, and the repo's test
+conventions. The harness loads none of that for subagents. Put "read
+<repo>/AGENTS.md and every file it references before writing" in the
+brief, and paste the directly relevant sections verbatim. A review brief
+uses the style guide as its rubric and cites rule names in findings.
 
 The spec is not the implementation agent's to change. Every brief states
 it: the agent must not edit, create, or remove the spec, a decision

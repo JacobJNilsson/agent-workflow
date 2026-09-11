@@ -27,7 +27,7 @@ smaller scope.
 | Agents | `~/.agents/agents/<name>.agent.md` | Personas for a subagent. |
 | Memory | `~/.claude/projects/<project>/memory/` | Facts and feedback that persist between sessions. |
 
-Copies of the global and workspace layers live under `instructions/`. The repo layer stays in each repo. Skills, agents, and memory examples live under `skills/`, `agents/`, and `memory/`.
+Copies of the global and workspace layers live under `instructions/`. The repo layer stays in each repo. Skills and agents live under `skills/` and `agents/`. `memory/` holds the format.
 
 Two conventions make the layers hold together:
 
@@ -70,11 +70,10 @@ Each rule links to the file that states it.
 
 - **The main loop coordinates. Workers produce.** The agent never writes
   code in the main conversation. It investigates, designs, and briefs a
-  worker. See `memory/examples/delegate-code-to-workers.md`.
+  worker. See `skills/way-of-working/SKILL.md`, step 2.
 - **Briefs carry the repo guidance.** A subagent starts with an empty
   context. The harness loads no `AGENTS.md` for it. Every brief pastes
-  the relevant rules. See
-  `memory/examples/worker-briefs-carry-repo-guidance.md`.
+  the relevant rules. Same step.
 - **Pin the model on every subagent.** Subagents inherit the session
   model. A large fan-out on the top model burns the usage limit. See
   `instructions/global/CLAUDE.md`.
@@ -104,7 +103,7 @@ PR states the reason for a behaviour in its own text. The repo's own
 Claude Code keeps one file per fact under the project's memory directory,
 with an index in `MEMORY.md`. Feedback memories record a correction, why
 it was given, and how to apply it. See `memory/README.md` for the format
-and `memory/examples/` for real entries.
+and for when a memory moves into a skill.
 
 ## Tools and plugins
 
