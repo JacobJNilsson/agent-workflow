@@ -8,8 +8,8 @@ explains the system. The other directories hold the source files.
 ## The idea in one paragraph
 
 The agent is a coordinator, not a typist. It writes a spec with me, sends
-investigation and code work to worker agents, runs an impartial review
-loop, and reviews the lasting prose before a PR opens. Every rule the
+investigation and code work to worker agents, and runs an impartial review
+loop. Each author finishes with an `unslop` pass on their text. Every rule the
 agent must follow lives in a file that the agent reads. A rule that is
 not in a file does not exist for the agent.
 
@@ -53,14 +53,15 @@ The `way-of-working` skill is the spine. For a task that changes code:
 4. **Review loop.** A fresh review agent judges the change. A fix agent
    fixes. Repeat until the review passes, at most three rounds. No push
    between rounds. Fixes land as fixup commits.
-5. **Copy review.** A reviewer checks comments, commit messages, and the
-   PR description against the glossary and the writing rules.
+5. **Author's final unslop pass.** Once the author considers the work
+   finished, point them to `unslop` for a pass on all text they wrote or
+   changed. The author edits directly, with no findings or verdict.
 6. **Open the PR.** Draft PR, short description, why before what.
 7. **Review feedback.** Fixup commits while the review runs. Rebase and
    autosquash when the review is green.
 
 Skills that carry each step: `way-of-working`, `simplicity-check`,
-`grilling`, `review-loop`, `copy-review`, `technical-writing`, `unslop`,
+`grilling`, `review-loop`, `technical-writing`, `unslop`,
 `decision-log`, `commit-message`, `pr-description`, `git-rebase`. See `skills/README.md` for the full list.
 
 ## The rules that matter most
