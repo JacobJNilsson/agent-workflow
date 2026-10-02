@@ -34,6 +34,12 @@ Third party skills that I use but do not copy here:
 - `impeccable`: https://github.com/pbakaus/impeccable
 - `find-skills`: https://github.com/vercel-labs/skills
 
+## States
+
+`../states/` holds a workflow written as a machine next to the prose that
+explains it, plus the check that fails when the two drift apart. A skill points
+at its declaration; the declaration points back at the skill.
+
 ## Writing a skill
 
 - Keep the description short and put the trigger phrases in it. The
