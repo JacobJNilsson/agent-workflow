@@ -66,7 +66,12 @@ Ask it these questions, in this order.
    Look for every separate step that could be a side effect of one step that
    already runs.
 
-7. **What is the smallest change that satisfies the requirement?** State it,
+7. **What does it hold in memory, and what bounds it?** A cache with no
+   capacity, a miss that fetches everything, a list kept for the life of the
+   process, or a copy of a large table per request. Name the size of the real
+   data. A change that grows with the data and has no bound is a finding.
+
+8. **What is the smallest change that satisfies the requirement?** State it,
    even when the answer is what was written.
 
 ## The rule that keeps this honest
