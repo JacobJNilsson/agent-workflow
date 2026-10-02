@@ -6,12 +6,12 @@ when a prompt matches, or when I type `/<name>`.
 
 | Skill | Purpose |
 | --- | --- |
-| `way-of-working` | The end to end workflow for a code change. Spec, worktrees, review loop, copy review, PR. |
+| `way-of-working` | Coordinate a code change through a spec, worktrees, a review loop, the author's final unslop pass, and a PR. |
 | `simplicity-check` | One fresh agent judges whether the change should exist and whether less code reaches the goal. Reports a verdict only. `review-loop` and `way-of-working` say what to do with it. |
 | `review-loop` | Review, fix, re-review until clean. Fresh reviewer each round, no push between rounds, three round cap. |
 | `technical-writing` | The writing standard for all lasting text. Diátaxis modes, Google developer style, ASD-STE100, Global English. Adapted from pstack (cursor/plugins, MIT). |
 | `unslop` | The catalog of AI tells to cut from any text. Loaded in every session from the global `AGENTS.md`. From pstack (cursor/plugins, MIT). |
-| `copy-review` | Review comments, commits, PR text, and specs against the glossary and `technical-writing`. A spec repo can ship a skill that binds it to a glossary. |
+| `copy-review` | Review prose when the user explicitly requests it. Routine work uses the author's final unslop pass. A spec repo can bind this skill to a glossary. |
 | `commit-message` | Conventional Commits, why before what, cold reader test. |
 | `pr-description` | Short PR text, why and what, no file lists. |
 | `why` | The reason behind code, a change, or a review comment: commit bodies via the bundled `git-why` script, then the PR thread, issues, the spec repo, and logs. Reports found, inferred, and unknown apart. |
