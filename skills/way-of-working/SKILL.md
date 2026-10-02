@@ -1,6 +1,6 @@
 ---
 name: way-of-working
-description: The workflow for tasks that change code, spec first with parallel investigation, implementation agents in worktrees, a simplicity check, a review loop, a copy review of lasting text, then a PR. TRIGGER at the start of any feature, fix, or refactor task, and when asked how we work.
+description: Coordinate code changes through a spec, implementation worktrees, a simplicity check, a review loop, the author's final unslop pass, and a PR. Use at the start of a feature, fix, or refactor, and when asked how we work.
 ---
 
 # Way of working
@@ -14,12 +14,55 @@ Write the spec with the user, iterating in chat. Run the `grilling` skill:
 ask the open decisions in numbered rounds with a recommended answer each,
 and fetch the facts yourself. Draft product behaviour for the spec repo, if
 the workspace has one. While the spec forms, spawn investigation agents to
-map the current state. Always pass an explicit model override, never run
-agents on Fable. Feed the findings back into the spec before it settles.
-The spec is good when the grilling frontier is empty and the user confirms
-the summary.
+map the current state. Always pass an explicit model override. Never run a subagent on the
+session model when it has a higher per-token cost. Feed the findings
+back into the spec before it settles. The spec is good when the
+grilling frontier is empty and the user confirms the summary.
 
-## 2. Implement in worktrees
+## 2. Agent economics
+
+Every subagent turn resends its full context. A 200-turn worker costs
+roughly ten times what a 20-turn worker costs. These rules keep the
+spend proportional to the work.
+
+**Model tier.** Use the cheapest tier that fits the task. Investigation,
+search, and single-file changes go to the fast tier. Multi-file
+implementation, review, and judgment go to the mid tier. Never run a
+subagent on the session model when it has a higher per-token cost than
+the mid tier.
+
+**Slice size.** One worker, one commit, at most one PR. The brief names
+the files to read, the test to run, and the done condition. When the
+head agent cannot write a done condition in one sentence, the slice is
+too big. Split it.
+
+**Turn budget.** Every brief states a turn budget: "stop and report
+after N tool calls or when the test passes". 80 is a safe default for a
+single-commit slice. A worker that reaches 150 turns without finishing
+is a sign the slice was wrong. The head agent reads the report, splits
+the remainder, and spawns a new worker. Never chain a continuation
+worker that rebuilds the same context.
+
+**Reuse running subagents.** When a worker finishes early and the next
+slice is in the same worktree, send the follow-up as a new message to
+the same subagent instead of spawning a fresh one. The context is
+already warm, so the second slice skips the repo-reading turns. Reuse
+only when the next slice shares the same repo, branch, and worktree.
+Start a new subagent when any of those differ.
+
+**Test runs.** While iterating, a worker runs the targeted test, not
+the full suite. Once the targeted test passes, the worker runs the full
+suite once to confirm nothing else broke. A full suite or CI run is one
+background command the worker starts and waits on, so it costs one
+turn, not a retry loop. Browser verification is a final check in its
+own small worker, not inside the build worker.
+
+**Investigation.** Investigation goes to the Explore agent on the fast
+tier. The brief states the question and the search breadth. The
+findings come back as a conclusion, not as file dumps pasted into the
+main context.
+
+## 3. Implement in worktrees
 
 When the user calls the spec good, spawn implementation agents in separate
 git worktrees branched off origin/main. The agents write the code and
@@ -74,7 +117,7 @@ fix, the regression test comes first and must fail against the unfixed
 code. Prove a doubtful test is load-bearing by reverting the change and
 watching it fail.
 
-## 3. Simplicity check, then review loop
+## 4. Simplicity check, then review loop
 
 Run the simplicity check once on the whole change. It reports whether the
 change should exist and whether less code reaches the goal. Act on its
@@ -90,14 +133,14 @@ when it moves decided behaviour — and the implementation continues against
 the updated spec. A reviewer judges the implementation against the spec as
 it stands, and flags an implementation that quietly amended it.
 
-## 4. Copy review
+## 5. Copy review
 
 Spawn a copy review on longer code comments and on the PR description
 before anything is published. The reviewer checks glossary terms, one word
 for one meaning, clear referents, short active sentences, and that a
 reader without the conversation understands the text.
 
-## 5. Open the PR
+## 6. Open the PR
 
 Create the PR as a draft unless the user says otherwise. The description
 states the problem and what the change does, in about 1000 characters. Do
@@ -109,7 +152,7 @@ The user edits PR descriptions by hand. Before you rewrite one, fetch the
 current body and keep every difference from your last version. Those
 differences are the user's deliberate edits.
 
-## 6. Review feedback
+## 7. Review feedback
 
 Before a human review starts, changes to an open PR are amends and force
 pushes. Once a human review has started, every change that answers it is a
