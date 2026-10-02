@@ -16,7 +16,7 @@ spawning subagents, handling git, and communicating with the user.
 
 ## Review target
 
-The user specifies what to review. The `/review` agent supports any of the
+The user specifies what to review. The `reviewer` agent supports any of the
 following targets -- use whichever the user provides:
 
 - **Local changes** (staged/unstaged diffs -- the default when nothing else is
@@ -24,7 +24,7 @@ following targets -- use whichever the user provides:
 - **A PR** (by number or URL).
 - **A specific commit or range** (by SHA or ref).
 
-Carry the chosen target through the entire loop so every `/review` invocation
+Carry the chosen target through the entire loop so every `reviewer` invocation
 and every fix subagent prompt refers to the same scope.
 
 ## Phase 0: the simplicity check
@@ -55,13 +55,12 @@ Report the verdict to the user, including a SHIP AS IS.
 
 ### Iteration
 
-1. **Review**: You MUST use the Task tool to spawn the `/review` agent for
-   this step. Do NOT review the code yourself -- the review must come from a
-   separate, impartial agent. Each `/review` invocation MUST be a **fresh
-   Task** (no `task_id` reuse). Never tell the review agent about previous
-   review iterations, previous findings, how many rounds have occurred, or
-   what was fixed. The reviewer must judge the code on its own merits every
-   time.
+1. **Review**: You MUST use the `subagent` tool to spawn the `reviewer` agent
+   for this step. Do NOT review the code yourself -- the review must come from
+   a separate, impartial agent. Each round MUST be a **fresh `subagent` call**,
+   never a reused child. Never tell the reviewer about previous rounds,
+   previous findings, how many rounds have occurred, or what was fixed. The
+   reviewer must judge the code on its own merits every time.
 
    **When the target is a PR**, the PR's remote state will be stale after the
    first iteration because this loop never pushes between iterations. The
@@ -72,14 +71,14 @@ Report the verdict to the user, including a SHIP AS IS.
    - Local commit list for the PR: `git log <base>..HEAD --oneline`
    - The commit range to review: `<base>..HEAD`
 
-   Then invoke `/review` with the commit range as the target (e.g.,
-   `/review main..HEAD`) and include the PR title, body, and commit list in
-   the Task prompt as context. Explicitly tell the reviewer that the local
+   Then invoke `reviewer` with the commit range as the target (e.g.,
+   `reviewer main..HEAD`) and include the PR title, body, and commit list in
+   the subagent prompt as context. Explicitly tell the reviewer that the local
    commits are the source of truth and the GitHub PR is stale -- it should
    not fetch the PR from GitHub.
 
-   For non-PR targets, invoke `/review` with the appropriate target (e.g.,
-   `/review`, `/review abc1234`).
+   For non-PR targets, invoke `reviewer` with the appropriate target (e.g.,
+   `reviewer`, `reviewer abc1234`).
 
 2. **Evaluate the verdict**:
    - **Approve** (no issues at any severity): The loop is done. Proceed to
@@ -91,8 +90,8 @@ Report the verdict to the user, including a SHIP AS IS.
    - **Needs discussion**: Stop and present the review to the user. Ask how to
      proceed before continuing.
 
-3. **Fix**: Spawn a fresh **generalPurpose subagent** to address the review
-   feedback. Include in its prompt:
+3. **Fix**: Spawn a fresh `worker` subagent to address the review feedback.
+   Include in its prompt:
    - The full review output (all issues, verbatim).
    - The specific files involved.
    - Relevant project conventions.
@@ -137,6 +136,12 @@ answer was to delete the parser, not to fix a seventh spelling.
 
 ## Wrap-up
 
+When an author considers the work finished, point them to `unslop` for one
+final pass on all text they wrote or changed. Include comments,
+documentation, specs, user-facing text, commit messages, and PR titles and
+descriptions. The author edits directly, with no findings, verdict, or
+approval requirement. Do not repeat the pass on unchanged text.
+
 When the review passes:
 
 1. **If working with a PR, push now.** Use `git push --force-with-lease` if
@@ -154,7 +159,7 @@ When the review passes:
 ## Guidelines
 
 - **Never review your own code.** The review step MUST always be delegated to
-  the `/review` agent via the Task tool. You are the orchestrator, not the
+  the `reviewer` agent via the `subagent` tool. You are the orchestrator, not the
   reviewer. Self-review defeats the purpose of the loop.
 - **Communicate at each phase boundary.** Before spawning subagents, briefly
   tell the user what you are doing ("Spawning review agent...",
@@ -163,7 +168,7 @@ When the review passes:
   and have no access to your conversation history. Be explicit about
   requirements, conventions, and file paths.
 - **Keep the reviewer impartial.** Never leak context about previous iterations
-  into the `/review` agent. No mention of prior findings, round numbers, or
+  into the `reviewer` agent. No mention of earlier findings, round numbers, or
   what was changed since last review. Each review must be a clean, unbiased
   assessment.
 - **Judgment calls are yours.** Amend vs new commit, whether to update the PR
@@ -171,19 +176,7 @@ When the review passes:
 - **Fix valid nits.** If the reviewer raises a nit that is actionable and
   improves the code, fix it. Only ignore nits that are purely subjective style
   preferences with no clear benefit.
-- **Check the reviewed language against the writing standard.** Paste the
-  `technical-writing` and `unslop` skills into each spawned `/review` agent's
-  brief and tell it to check the prose in the reviewed changes against them.
-  This applies to documentation, comments, user-facing text, commit messages,
-  and the PR description. The reviewer must report a violation as a finding,
-  so the fix step corrects it. Examples of violations: passive voice,
-  sentences with more than 25 words, one word with more than one meaning,
-  idioms, unnecessary jargon, and the AI tells that `unslop` lists.
-- **Check the prose against the cold reader test.** Tell each spawned `/review`
-  agent to read the PR description and the commit messages as a person who did
-  not see the conversation that produced them. The reviewer must report as a
-  finding each statement that this person cannot act on, or cannot verify from
-  the repository or from CI. Examples of violations: a tool version measured on
-  one machine, an environment problem that belongs to one checkout, an answer
-  to a question that nobody asked in the PR, and a report of attempts or
-  corrections.
+- Leave writing style to the author's final `unslop` pass. Do not ask code
+  reviewers to grade prose or spawn a copy reviewer unless the user
+  explicitly requests a copy review. Reviewers still flag factual errors
+  and misleading claims that affect correctness.
