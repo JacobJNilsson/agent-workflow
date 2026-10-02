@@ -126,6 +126,27 @@ verdict: simplify first, or take a questioned requirement back to the user.
 Then spawn a review loop on the commits and iterate fix and re-review until
 the review passes.
 
+### Triage the findings before acting on them
+
+A finding is not an instruction. The same finding can be a code fix, a change
+to the plan, or a mistake the reviewer made. The agent that triages it holds
+the full conversation, the spec, and the earlier rounds. A fresh worker or
+reviewer does not, so never route a finding straight to a fix.
+
+For every finding, the triaging agent decides one of four things and writes the
+reason down:
+
+- **Fix it.** A defect in the code. It goes to a fix worker with the finding
+  and nothing else.
+- **Change the plan.** The finding is right and the approach is wrong. It goes
+  back to the spec, and the spec goes through the simplicity check again.
+- **Ignore it.** The finding is wrong, or it was raised and settled earlier.
+  Say which, and point at the earlier decision. Record it with `decision-log`.
+- **Cannot settle it.** The decision moves product behaviour. Stop and ask.
+
+A reviewer that repeats a finding the triage already ignored is a signal the
+reviewer is wrong, not the triage. Cap the loop, then stop and report.
+
 A review sometimes shows that the spec itself needs an adjustment. The
 implementation agent raises that concern, with its suggestion, to the
 managing agent. The managing agent makes the spec change — with the user
