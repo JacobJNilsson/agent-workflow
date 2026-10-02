@@ -133,12 +133,17 @@ when it moves decided behaviour — and the implementation continues against
 the updated spec. A reviewer judges the implementation against the spec as
 it stands, and flags an implementation that quietly amended it.
 
-## 5. Copy review
+## 5. Author's final unslop pass
 
-Spawn a copy review on longer code comments and on the PR description
-before anything is published. The reviewer checks glossary terms, one word
-for one meaning, clear referents, short active sentences, and that a
-reader without the conversation understands the text.
+When an author considers the work finished, point them to the `unslop`
+skill for one final pass before publication. The author applies it to all
+text they wrote or changed. Include comments, documentation, specs,
+user-facing text, commit messages, and PR titles and descriptions.
+
+The author edits the text directly and preserves its meaning. This pass
+produces no findings, verdict, or approval requirement. Do not spawn a copy
+reviewer or repeat the pass on unchanged text. Run a separate copy review
+only when the user explicitly asks for one.
 
 ## 6. Open the PR
 
