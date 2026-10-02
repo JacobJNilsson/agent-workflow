@@ -1,0 +1,35 @@
+# The workflow in `way-of-working`, as a machine.
+prose ../../skills/way-of-working/SKILL.md
+
+entry spec
+entry review
+
+state spec      waits=human     cap=5
+state implement waits=worker
+state review    waits=reviewer
+state unslop    waits=author
+state pr        waits=none
+state wait      waits=human
+state stop      waits=human     terminal
+state done      waits=none      terminal
+
+spec -> spec      when="the author sends the spec back"                    human
+spec -> implement when="the author approves the spec"                      human
+spec -> stop      when="the author asks something the spec cannot answer"   human
+
+implement -> review when="the worker finished and the tests pass"
+implement -> spec   when="the change turned out to be a different change"   human
+
+review -> implement when="a finding is worth fixing now"                   cap=3
+review -> spec      when="a reviewer found a decision nobody made"          human
+review -> stop      when="the round cap is reached"                         human
+review -> unslop    when="no finding is worth fixing now"
+
+unslop -> pr     when="the author finished the pass"
+unslop -> review when="the pass changed the code"                           cap=3
+
+pr -> wait       when="the PR is open"
+wait -> implement when="review feedback is a code fix"                      cap=10
+wait -> spec      when="review feedback changes the scope"                   human
+wait -> stop      when="the author wants to take over"                       human
+wait -> done      when="the author merged"

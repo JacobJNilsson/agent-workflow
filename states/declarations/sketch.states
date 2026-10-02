@@ -1,0 +1,20 @@
+# The first hand sketch, kept as the example the validator rejects.
+prose ../../skills/way-of-working/SKILL.md
+
+entry codeplan
+
+state codeplan   waits=human
+state reviewplan waits=human
+state implement   waits=worker
+state review      waits=reviewer
+state pr          waits=none
+state human       waits=human
+
+codeplan -> reviewplan when="human asked"
+reviewplan -> codeplan  when="feedback"
+reviewplan -> implement  when="ok"
+implement -> review      when="done"
+review -> codeplan       when="findings"
+codeplan -> pr           when="code done"
+pr -> human              when="write pr"
+human -> codeplan        when="feedback"
