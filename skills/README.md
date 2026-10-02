@@ -8,7 +8,9 @@ when a prompt matches, or when I type `/<name>`.
 | --- | --- |
 | `way-of-working` | Coordinate a code change through a spec, worktrees, a review loop, the author's final unslop pass, and a PR. |
 | `simplicity-check` | One fresh agent judges whether the change should exist and whether less code reaches the goal. Reports a verdict only. `review-loop` and `way-of-working` say what to do with it. |
-| `review-loop` | Review, fix, re-review until clean. Fresh reviewer each round, no push between rounds, three round cap. |
+| `review-code` | Review a change against the task, the repo rules, and the tests. Severity levels and a verdict. Used on its own, and by `review-loop` and `review-pr`. |
+| `review-loop` | Review, fix, re-review until clean. Fresh reviewer each round, no push between rounds, three round cap. Owns the mechanics. `review-code` owns the criteria. |
+| `review-pr` | Run `review-code` against a GitHub PR and stage the findings as one pending review. |
 | `technical-writing` | The writing standard for all lasting text. Diátaxis modes, Google developer style, ASD-STE100, Global English. Adapted from pstack (cursor/plugins, MIT). |
 | `unslop` | The catalog of AI tells to cut from any text. Loaded in every session from the global `AGENTS.md`. From pstack (cursor/plugins, MIT). |
 | `copy-review` | Review prose when the user explicitly requests it. Routine work uses the author's final unslop pass. A spec repo can bind this skill to a glossary. |

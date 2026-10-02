@@ -14,6 +14,12 @@ spawning subagents, handling git, and communicating with the user.
 - Changes already exist (local changes, a PR, or specific commits).
 - `gh` CLI is authenticated (if working with PRs).
 
+## What this skill owns
+
+This skill owns the loop: spawn, judge, fix, commit, repeat, stop. It does not
+own the review criteria. The `review-code` skill holds those, and the `reviewer`
+agent applies it. Do not restate the criteria here or in a reviewer prompt.
+
 ## Review target
 
 The user specifies what to review. The `reviewer` agent supports any of the
