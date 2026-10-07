@@ -1,0 +1,83 @@
+# The workflow in `way-of-working`, as a machine.
+#
+# The drawing is for a person. The block below it is for the check. Both live
+# here so they cannot drift into two files that disagree.
+#
+# pi renders the drawing with pi-mermaid. node validate-states.mjs reads the
+# block.
+
+```mermaid
+flowchart LR
+  SIM["simplicity<br/>waits: reviewer<br/>cap 3"]
+  SPEC["spec<br/>waits: human<br/>cap 5"]
+  IMPL["implement<br/>waits: worker"]
+  REV["review<br/>waits: reviewer"]
+  TRI["triage<br/>waits: orchestrator"]
+  UNS["unslop<br/>waits: author"]
+  PR["pr<br/>waits: none"]
+  WAIT["wait<br/>waits: human"]
+  STOP(["stop"])
+  DONE(["done"])
+
+  SIM -->|"smallest solution named"| IMPL
+  SIM -->|"requirement questioned · human"| STOP
+  SPEC -->|"approved · human"| SIM
+  SPEC -->|"sent back · human"| SPEC
+  IMPL -->|"tests pass"| REV
+  IMPL -->|"different change · human"| SPEC
+  REV -->|"finding · cap 3"| TRI
+  REV -->|"nothing to fix"| UNS
+  TRI -->|"code fix"| IMPL
+  TRI -->|"changes the plan · human"| SPEC
+  TRI -->|"wrong, already considered"| REV
+  TRI -->|"cannot settle it · human"| STOP
+  UNS -->|"pass done"| PR
+  UNS -->|"pass changed the code · cap 3"| REV
+  PR -->|"PR open"| WAIT
+  WAIT -->|"feedback needs a decision · cap 10"| TRI
+  WAIT -->|"take over · human"| STOP
+  WAIT -->|"merged"| DONE
+```
+
+```states
+prose ../../skills/way-of-working/SKILL.md
+
+entry simplicity
+entry review
+
+state simplicity waits=reviewer     cap=3
+state spec       waits=human        cap=5
+state implement  waits=worker
+state review     waits=reviewer
+state triage     waits=orchestrator
+state unslop     waits=author
+state pr         waits=none
+state wait       waits=human
+state stop       waits=human        terminal
+state done       waits=none         terminal
+
+simplicity -> stop      when="the requirement itself is questioned"              human
+simplicity -> implement when="the smallest solution that works is named"
+
+spec -> simplicity when="the author approves the spec"                           human
+spec -> spec       when="the author sends the spec back"                         human
+
+implement -> review when="the worker finished and the tests pass"
+implement -> spec   when="the change turned out to be a different change"        human
+
+review -> triage when="a reviewer reported a finding"                           cap=3
+review -> unslop when="no finding is worth fixing now"
+
+triage -> implement when="the finding is a code fix"
+triage -> spec      when="the finding changes the plan"                          human
+triage -> review    when="the finding is wrong and was already considered"        note="record the reason with decision-log"
+triage -> stop      when="the triage cannot settle it"                           human
+
+unslop -> pr     when="the author finished the pass"
+unslop -> review when="the pass changed the code"                                cap=3
+
+pr -> wait   when="the PR is open"
+wait -> triage when="review feedback needs a decision"                           cap=10
+wait -> stop   when="the author wants to take over"                               human
+wait -> done   when="the author merged"
+```
