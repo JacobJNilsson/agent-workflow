@@ -35,6 +35,15 @@ Two conventions make the layers hold together:
 - `~/.claude/skills` is a symlink to `~/.agents/skills`, and each entry
   there is a symlink into `skills/` in this repo. One checkout serves
   every tool, and an edit in either place is the same edit.
+- `~/.config/agents/models.env` is a symlink to `config/models.env` in
+  this repo. It maps the fast, mid, and deep model tiers to Claude Code
+  models. A skill, brief, or job names a tier and reads this file for the
+  model. Create the link once:
+
+  ```sh
+  mkdir -p ~/.config/agents
+  ln -s "$PWD/config/models.env" ~/.config/agents/models.env
+  ```
 
 ## The workflow
 
