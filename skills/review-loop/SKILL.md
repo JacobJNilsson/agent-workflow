@@ -108,9 +108,10 @@ Report the verdict to the user, including a SHIP AS IS.
 
 3. **Evaluate the verdict** on the findings that stand:
    - **Approve** (no issues at any severity): The loop is done. Proceed to
-     the wrap-up step.
-   - **Approve with nits**: The loop is done. Keep the nits for the wrap-up
-     step. A nit never starts a fix round.
+     the lighter-code pass.
+   - **Approve with nits**: The loop is done. Proceed to the lighter-code
+     pass, and keep the nits for the wrap-up step. A nit never starts a fix
+     round.
    - **Request changes** (critical or concern items): Continue to the fix step.
      Keep the nits of this round for the wrap-up step too.
    - **Needs discussion**: Stop and present the review to the user. Ask how to
@@ -163,6 +164,23 @@ A round that finds a real bug feels like progress, which is what keeps a branch
 on a bad approach. One change took nine rounds. Rounds one to six each found a
 hand-written parser missing valid syntax, in a new spelling every time. The
 answer was to delete the parser, not to fix a seventh spelling.
+
+## After the loop: the lighter-code pass
+
+When the review passes, run the **lighter-code** skill ONCE on the whole
+change, before the wrap-up. That skill finds the existing code the change made
+unnecessary, and removes it in its own commits.
+
+A change often leaves a function without callers or a flag that is always
+true. Nothing fails, so the review loop never sees it. The loop judges the
+code the change wrote, and this pass looks at the code around it.
+
+- **Nothing removed**: continue to the wrap-up.
+- **Code removed**: spawn one fresh `reviewer` round on the removal commits
+  alone. Triage a finding as in the loop. Do not run the pass again.
+
+Report what the pass removed, listed, and kept to the user, including an
+empty result.
 
 ## Wrap-up
 

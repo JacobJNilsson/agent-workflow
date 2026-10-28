@@ -13,6 +13,7 @@ flowchart LR
   IMPL["implement<br/>waits: worker"]
   REV["review<br/>waits: reviewer"]
   TRI["triage<br/>waits: orchestrator"]
+  LIG["lighter<br/>waits: worker"]
   UNS["unslop<br/>waits: author"]
   PR["pr<br/>waits: none"]
   WAIT["wait<br/>waits: human"]
@@ -26,7 +27,10 @@ flowchart LR
   IMPL -->|"tests pass"| REV
   IMPL -->|"different change · human"| SPEC
   REV -->|"finding · cap 3"| TRI
-  REV -->|"nothing to fix"| UNS
+  REV -->|"nothing to fix, pass not run"| LIG
+  REV -->|"nothing to fix, pass ran"| UNS
+  LIG -->|"removed nothing"| UNS
+  LIG -->|"removed code · cap 1"| REV
   TRI -->|"code fix"| IMPL
   TRI -->|"changes the plan · human"| SPEC
   TRI -->|"wrong, already considered"| REV
@@ -50,6 +54,7 @@ state spec       waits=human        cap=5
 state implement  waits=worker
 state review     waits=reviewer
 state triage     waits=orchestrator
+state lighter    waits=worker
 state unslop     waits=author
 state pr         waits=none
 state wait       waits=human
@@ -66,7 +71,11 @@ implement -> review when="the worker finished and the tests pass"
 implement -> spec   when="the change turned out to be a different change"        human
 
 review -> triage when="a reviewer reported a finding"                           cap=3
-review -> unslop when="no finding is worth fixing now"
+review -> lighter when="no finding is worth fixing now and the lighter-code pass has not run"
+review -> unslop  when="no finding is worth fixing now and the lighter-code pass ran"
+
+lighter -> unslop when="the pass removed nothing"
+lighter -> review when="the pass removed code"                                   cap=1
 
 triage -> implement when="the finding is a code fix"
 triage -> spec      when="the finding changes the plan"                          human
