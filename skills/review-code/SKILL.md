@@ -31,6 +31,18 @@ Drop anything you cannot support:
 - A risk in code this change did not touch.
 - A restatement of what a linter or type checker can tell you.
 
+Do not ask for defensive code. A coding agent fixes every finding it gets, so
+each such ask leaves code that guards against nothing. These are not findings:
+
+- A guard for input that no caller can produce.
+- Error handling for a state that the types or the data model rule out.
+- A second check of a value that the code upstream already checked.
+- A test for a path that this change did not create or change.
+- A rename, a split, or a restructure that the repo rules do not ask for.
+
+If you believe a caller can produce the input, name the caller. Then it is a
+finding.
+
 Whether the code should exist at all is a separate question. The simplicity check
 owns it. Judge whether the code is right.
 
@@ -56,6 +68,9 @@ End with one line:
 
 Group findings by severity, most severe first. For each one give the file and
 line, what is wrong, the proof, and the smallest fix you would accept.
+
+Do not describe the code that is correct. A part of the change with no finding
+needs no report.
 
 Leave prose alone. Do not grade comments, commit messages, or docs wording.
 Flag a comment or a doc only when it states something false about the code.
