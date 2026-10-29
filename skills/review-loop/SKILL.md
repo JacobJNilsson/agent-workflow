@@ -89,16 +89,17 @@ Report the verdict to the user, including a SHIP AS IS.
 2. **Evaluate the verdict**:
    - **Approve** (no issues at any severity): The loop is done. Proceed to
      the wrap-up step.
-   - **Approve with nits**: Evaluate each nit. If a nit is valid and
-     actionable, continue to the fix step and address it. Only skip nits that
-     are subjective style preferences with no clear improvement.
+   - **Approve with nits**: The loop is done. Keep the nits for the wrap-up
+     step. A nit never starts a fix round.
    - **Request changes** (critical or concern items): Continue to the fix step.
+     Keep the nits of this round for the wrap-up step too.
    - **Needs discussion**: Stop and present the review to the user. Ask how to
      proceed before continuing.
 
 3. **Fix**: Spawn a fresh `worker` subagent to address the review feedback.
    Include in its prompt:
-   - The full review output (all issues, verbatim).
+   - The critical and concern items you decided to fix, verbatim. Leave out
+     the nits.
    - The specific files involved.
    - Relevant project conventions.
    - Instruction to run the project's verification command before returning.
@@ -159,8 +160,7 @@ When the review passes:
 2. Report to the user: the changes are review-clean, summarize what was fixed
    and how many review iterations it took. If working with a PR, include the
    PR URL.
-3. If there were only nit-level items in the final review, mention them so the
-   user can decide whether to address them.
+3. List the nits from every round, so the user can pick the ones worth doing.
 
 ## Guidelines
 
@@ -179,9 +179,9 @@ When the review passes:
   assessment.
 - **Judgment calls are yours.** Amend vs new commit, whether to update the PR
   description -- these are decisions you make as the orchestrator.
-- **Fix valid nits.** If the reviewer raises a nit that is actionable and
-  improves the code, fix it. Only ignore nits that are purely subjective style
-  preferences with no clear benefit.
+- **Leave the nits to the user.** A fix worker applies every comment it gets.
+  Nit fixes add churn and defensive code, and each fix costs a review round.
+  The user reads the nit list at wrap-up and picks.
 - Leave writing style to the author's final `unslop` pass. Do not ask code
   reviewers to grade prose or spawn a copy reviewer unless the user
   explicitly requests a copy review. Reviewers still flag factual errors

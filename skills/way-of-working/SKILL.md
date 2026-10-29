@@ -133,8 +133,11 @@ to the plan, or a mistake the reviewer made. The agent that triages it holds
 the full conversation, the spec, and the earlier rounds. A fresh worker or
 reviewer does not, so never route a finding straight to a fix.
 
-For every finding, the triaging agent decides one of four things and writes the
-reason down:
+A nit skips the triage. The orchestrator lists the nits for the user when the
+loop ends, and the user picks the ones worth doing.
+
+For every other finding, the triaging agent decides one of four things and
+writes the reason down:
 
 - **Fix it.** A defect in the code. It goes to a fix worker with the finding
   and nothing else.
