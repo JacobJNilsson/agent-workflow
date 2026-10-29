@@ -97,7 +97,16 @@ Report the verdict to the user, including a SHIP AS IS.
    For non-PR targets, invoke `reviewer` with the appropriate target (e.g.,
    `reviewer`, `reviewer abc1234`).
 
-2. **Evaluate the verdict**:
+2. **Refute**: For each critical or concern finding, spawn one fresh agent
+   on the mid tier, all in one message. Give it the finding and the target.
+   Ask it to prove the finding wrong from the code, and to answer `stands` or
+   `refuted` with the file and line that decide it. Drop a refuted finding.
+   Skip this step when the round has no critical or concern finding.
+
+   A wrong finding costs a fix worker and a review round. A refute agent
+   costs a few file reads.
+
+3. **Evaluate the verdict** on the findings that stand:
    - **Approve** (no issues at any severity): The loop is done. Proceed to
      the wrap-up step.
    - **Approve with nits**: The loop is done. Keep the nits for the wrap-up
@@ -107,7 +116,7 @@ Report the verdict to the user, including a SHIP AS IS.
    - **Needs discussion**: Stop and present the review to the user. Ask how to
      proceed before continuing.
 
-3. **Fix**: Spawn a fresh `worker` subagent to address the review feedback.
+4. **Fix**: Spawn a fresh `worker` subagent to address the review feedback.
    Include in its prompt:
    - The critical and concern items you decided to fix, verbatim. Leave out
      the nits.
@@ -118,7 +127,7 @@ Report the verdict to the user, including a SHIP AS IS.
      orchestrator can handle commit strategy.
    - What to report back.
 
-4. **Commit**: After the fix subagent returns, you (the orchestrator) decide
+5. **Commit**: After the fix subagent returns, you (the orchestrator) decide
    how to commit. **Never create generic "address review feedback" commits.**
    The git history should read as if the fixes were part of the original work.
 
@@ -136,7 +145,7 @@ Report the verdict to the user, including a SHIP AS IS.
      Intermediate pushes clutter the GitHub history with churn. The push
      happens once at wrap-up.
 
-5. **Next iteration**: Go back to step 1.
+6. **Next iteration**: Go back to step 1.
 
 ### Safety cap
 
@@ -175,6 +184,8 @@ When the review passes:
    and how many review iterations it took. If working with a PR, include the
    PR URL.
 3. List the nits from every round, so the user can pick the ones worth doing.
+4. List the findings that the refute step dropped, each with the line that
+   decided it.
 
 ## Guidelines
 
