@@ -60,8 +60,8 @@ The `way-of-working` skill is the spine. For a task that changes code:
 3. **Simplicity check.** One fresh agent asks if the change should exist
    and if less code reaches the goal. Runs once, before any review.
 4. **Review loop.** A fresh review agent judges the change. A fix agent
-   fixes. Repeat until the review passes, at most three rounds. No push
-   between rounds. Fixes land as fixup commits.
+   fixes. Each later round checks only the fixes, at most three rounds in
+   all. No push between rounds. Fixes land as fixup commits.
 5. **Author's final unslop pass.** Once the author considers the work
    finished, point them to `unslop` for a pass on all text they wrote or
    changed. The author edits directly, with no findings or verdict.
@@ -90,8 +90,10 @@ Each rule links to the file that states it.
   at most 25 words per sentence, one word for one meaning, no em-dashes,
   no semicolons. This covers comments, commits, PR text, and specs. The
   `unslop` skill covers chat too.
-- **The reviewer never sees earlier rounds.** Each review is a fresh
-  agent with no history. This keeps the review impartial.
+- **One full review, then fix checks.** The first reviewer gets the
+  change and the task, and nothing else. Each later reviewer gets the
+  findings and the fix diff, and judges only the fix. A full review every
+  round finds something new each time, and the loop never settles.
 - **Ask whether the code should exist before asking whether it is
   right.** The simplicity check runs once and before the review loop.
 - **The spec is the reference.** Workers cannot amend the document they
