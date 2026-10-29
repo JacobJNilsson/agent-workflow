@@ -62,6 +62,8 @@ The `way-of-working` skill is the spine. For a task that changes code:
 4. **Review loop.** A fresh review agent judges the change. A fix agent
    fixes. Each later round checks only the fixes, at most three rounds in
    all. No push between rounds. Fixes land as fixup commits.
+   When the review passes, a `lighter-code` pass removes existing code
+   that the change made unnecessary, and one review round checks the removal.
 5. **Author's final unslop pass.** Once the author considers the work
    finished, point them to `unslop` for a pass on all text they wrote or
    changed. The author edits directly, with no findings or verdict.
@@ -70,7 +72,7 @@ The `way-of-working` skill is the spine. For a task that changes code:
    autosquash when the review is green.
 
 Skills that carry each step: `way-of-working`, `simplicity-check`,
-`grilling`, `review-loop`, `technical-writing`, `unslop`,
+`grilling`, `review-loop`, `lighter-code`, `technical-writing`, `unslop`,
 `decision-log`, `commit-message`, `pr-description`, `git-rebase`. See `skills/README.md` for the full list.
 
 ## The rules that matter most

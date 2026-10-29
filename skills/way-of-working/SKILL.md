@@ -157,6 +157,14 @@ when it moves decided behaviour — and the implementation continues against
 the updated spec. A reviewer judges the implementation against the spec as
 it stands, and flags an implementation that quietly amended it.
 
+### The lighter-code pass
+
+When the loop passes, run the `lighter-code` skill once. Send it to the
+implementation agent while its context is warm. It removes the existing code
+the change made unnecessary, in its own commits, and lists older dead code
+without removing it. One fresh reviewer round checks any removal. Report the
+result to the user, including an empty one.
+
 ## 5. Author's final unslop pass
 
 When an author considers the work finished, point them to the `unslop`
