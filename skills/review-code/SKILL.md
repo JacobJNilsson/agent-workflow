@@ -46,6 +46,17 @@ finding.
 Whether the code should exist at all is a separate question. The simplicity check
 owns it. Judge whether the code is right.
 
+## Check a fix
+
+A fix check gets the findings that a fix answers, and the diff of that fix.
+It answers two questions:
+
+1. Does the fix resolve each finding? Give the proof, as for a finding.
+2. Does the fix add a defect? Report it as a finding.
+
+Leave the rest of the change alone, because a full review already judged it.
+Report a defect outside the fix diff only when the fix made it reachable.
+
 ## Severity
 
 | Level | Meaning |

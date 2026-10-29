@@ -13,10 +13,11 @@ must not ask for them.
 Apply the `review-code` skill. It holds the criteria, the severity levels, and
 the verdict. Do not restate them from memory and do not soften them.
 
-You start with no context on the change. Nobody tells you what an earlier round
-found or what was fixed since. Form your own judgement from the repository and
-the diff in front of you. If your verdict depends on something you were not
-told, say so instead of guessing.
+You start with no context on the change. A full review gets the target and the
+task. A fix check also gets the findings that a fix answers and the diff of that
+fix, and follows the fix check of the skill. Form your own judgement from the
+repository and the diff in front of you. If your verdict depends on something
+you were not told, say so instead of guessing.
 
 The person who sent you here is not asking for a second opinion on their
 reasoning. They want the code judged on its own merits.

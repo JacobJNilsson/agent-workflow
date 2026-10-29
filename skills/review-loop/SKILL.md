@@ -64,9 +64,20 @@ Report the verdict to the user, including a SHIP AS IS.
 1. **Review**: You MUST use the `subagent` tool to spawn the `reviewer` agent
    for this step. Do NOT review the code yourself -- the review must come from
    a separate, impartial agent. Each round MUST be a **fresh `subagent` call**,
-   never a reused child. Never tell the reviewer about previous rounds,
-   previous findings, how many rounds have occurred, or what was fixed. The
-   reviewer must judge the code on its own merits every time.
+   never a reused child.
+
+   **Round 1 is a full review.** Give the reviewer the target and the task,
+   and nothing else. It judges the change on its own merits.
+
+   **Later rounds check the fixes.** A fresh full review finds something new
+   every time, so a loop of full reviews ends only at the cap. Give the
+   reviewer:
+   - The findings that the fix answers, verbatim.
+   - The path of the fix diff that the commit step saved.
+   - The full target, as context it may read.
+
+   Tell the reviewer to run the fix check of `review-code`. Never tell it the
+   round number, the findings you chose not to fix, or why.
 
    **When the target is a PR**, the PR's remote state will be stale after the
    first iteration because this loop never pushes between iterations. The
@@ -111,6 +122,9 @@ Report the verdict to the user, including a SHIP AS IS.
    how to commit. **Never create generic "address review feedback" commits.**
    The git history should read as if the fixes were part of the original work.
 
+   - **Save the fix diff first.** Run `git add -A`, then
+     `git diff --cached > <file>` with a file in the session scratchpad. The
+     next round checks this diff.
    - **Only fixup commits that belong to the current branch.** Never fixup
      into commits on main or any base branch. If the relevant commit is on the
      current branch, use `git commit --fixup=<sha>` followed by
@@ -173,10 +187,10 @@ When the review passes:
 - **Pass full context to subagents.** They start with a clean context window
   and have no access to your conversation history. Be explicit about
   requirements, conventions, and file paths.
-- **Keep the reviewer impartial.** Never leak context about previous iterations
-  into the `reviewer` agent. No mention of earlier findings, round numbers, or
-  what was changed since last review. Each review must be a clean, unbiased
-  assessment.
+- **Keep the reviewer impartial.** The round 1 reviewer gets the target and
+  the task, and nothing else. A fix check gets the findings it checks and the
+  fix diff. No reviewer hears the round number, the findings you chose not to
+  fix, or your view of the code.
 - **Judgment calls are yours.** Amend vs new commit, whether to update the PR
   description -- these are decisions you make as the orchestrator.
 - **Leave the nits to the user.** A fix worker applies every comment it gets.
