@@ -1,6 +1,6 @@
 ---
 name: way-of-working
-description: Coordinate code changes through a spec, implementation worktrees, a simplicity check, a review loop, the author's final unslop pass, and a PR. Use at the start of a feature, fix, or refactor, and when asked how we work.
+description: Coordinate code changes through a spec, implementation worktrees, a review loop, the author's final unslop pass, and a PR. Use at the start of a feature, fix, or refactor, and when asked how we work.
 ---
 
 # Way of working
@@ -117,14 +117,12 @@ fix, the regression test comes first and must fail against the unfixed
 code. Prove a doubtful test is load-bearing by reverting the change and
 watching it fail.
 
-## 4. Simplicity check, then review loop
+## 4. Review loop
 
-Run the simplicity check once on the whole change. It reports whether the
-change should exist and whether less code reaches the goal. Act on its
-verdict: simplify first, or take a questioned requirement back to the user.
-
-Then spawn a review loop on the commits and iterate fix and re-review until
-the review passes.
+Spawn a review loop on the commits, and repeat fix and review until the
+review passes. The first review also judges the size of the change. It asks
+whether less code and fewer exported names could reach the goal. A size cut
+is a finding like any other, and goes through the triage below.
 
 ### Triage the findings before acting on them
 
@@ -142,7 +140,7 @@ writes the reason down:
 - **Fix it.** A defect in the code. It goes to a fix worker with the finding
   and nothing else.
 - **Change the plan.** The finding is right and the approach is wrong. It goes
-  back to the spec, and the spec goes through the simplicity check again.
+  back to the spec, and the new implementation gets a new full review.
 - **Ignore it.** The finding is wrong, or it was raised and settled earlier.
   Say which, and point at the earlier decision. Record it with `decision-log`.
 - **Cannot settle it.** The decision moves product behaviour. Stop and ask.

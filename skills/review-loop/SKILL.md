@@ -33,30 +33,6 @@ following targets -- use whichever the user provides:
 Carry the chosen target through the entire loop so every `reviewer` invocation
 and every fix subagent prompt refers to the same scope.
 
-## Phase 0: the simplicity check
-
-Before the first correctness review, run the **simplicity-check** skill ONCE on
-the whole change. That skill only reports. This section says what the loop
-does with its verdict.
-
-Correct code that nobody needs is waste, and a finding fixed in code that
-should be deleted is work spent twice. A correctness reviewer asks whether the
-code is right. It almost never asks whether the code should exist. Ask that
-first.
-
-Act on the verdict before any review round starts:
-
-- **SHIP AS IS**: begin the loop below.
-- **SIMPLIFY FIRST**: make the named removals, run the project verification
-  command, then begin the loop on the smaller change.
-- **QUESTION THE REQUIREMENT**: stop and put it to the user. Do not decide it
-  alone, and do not start the loop.
-
-Run this ONCE. Do not repeat it between review rounds: scope is a judgement
-about the change as a whole, and re-asking every round invites churn.
-
-Report the verdict to the user, including a SHIP AS IS.
-
 ## Review loop
 
 ### Iteration
@@ -67,7 +43,9 @@ Report the verdict to the user, including a SHIP AS IS.
    never a reused child.
 
    **Round 1 is a full review.** Give the reviewer the target and the task,
-   and nothing else. It judges the change on its own merits.
+   and nothing else. It judges whether the change is right, and whether it is
+   bigger than it needs to be. One reviewer reads the code once for both.
+   Show the user the size table from this round.
 
    **Later rounds check the fixes.** A fresh full review finds something new
    every time, so a loop of full reviews ends only at the cap. Give the
@@ -138,6 +116,9 @@ Report the verdict to the user, including a SHIP AS IS.
      into commits on main or any base branch. If the relevant commit is on the
      current branch, use `git commit --fixup=<sha>` followed by
      `git rebase -i --autosquash` to fold it in.
+   - **Commit a deletion on its own.** When a fix deletes old code that the
+     change left unused, put the deletion in its own commit after the feature
+     commits. The body names the change that left the code unused.
    - Otherwise, create a **new commit** with a proper descriptive message
      following the commit-message skill conventions. Never use generic messages
      like "fix: address review feedback".
