@@ -7,8 +7,7 @@ when a prompt matches, or when I type `/<name>`.
 | Skill | Purpose |
 | --- | --- |
 | `way-of-working` | Coordinate a code change through a spec, worktrees, a review loop, the author's final unslop pass, and a PR. |
-| `simplicity-check` | One fresh agent judges whether the change should exist and whether less code reaches the goal. Reports a verdict only. `review-loop` and `way-of-working` say what to do with it. |
-| `review-code` | Review a change against the task, the repo rules, and the tests. Severity levels and a verdict. Used on its own, and by `review-loop` and `review-pr`. |
+| `review-code` | Review a change against the task, the repo rules, and the tests. Cut exported names, packages, and options that nobody needs, and delete code the change left unused. Severity levels and a verdict. Used on its own, and by `review-loop` and `review-pr`. |
 | `review-loop` | Review, fix, check the fix until clean. One full review, then fix checks, no push between rounds, three round cap. A separate agent tries to refute each finding before a fix. Nits go to the user, not to a fix round. Owns the mechanics. `review-code` owns the criteria. |
 | `review-pr` | Run `review-code` against a GitHub PR and stage the findings as one pending review. |
 | `technical-writing` | The writing standard for all lasting text. Diátaxis modes, Google developer style, ASD-STE100, Global English. Adapted from pstack (cursor/plugins, MIT). |
@@ -45,7 +44,7 @@ at its declaration; the declaration points back at the skill.
 - Keep the description short and put the trigger phrases in it. The
   agent decides from the description alone.
 - State the rule, then the reason. A rule with a story holds better than
-  a rule alone. `simplicity-check` and `review-loop` show the pattern.
+  a rule alone. `review-code` and `review-loop` show the pattern.
 - Name what the agent must not do. Skills fail most often on an action
   the author assumed nobody would take.
 - Keep company names and paths out of skills that other people will

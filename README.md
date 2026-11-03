@@ -57,20 +57,19 @@ The `way-of-working` skill is the spine. For a task that changes code:
    `AGENTS.md`, the style guide, the glossary terms, and the test rules.
    Workers may not edit the spec. Tests come from the spec, before the
    code.
-3. **Simplicity check.** One fresh agent asks if the change should exist
-   and if less code reaches the goal. Runs once, before any review.
-4. **Review loop.** A fresh review agent judges the change. A fix agent
-   fixes. Each later round checks only the fixes, at most three rounds in
-   all. No push between rounds. Fixes land as fixup commits.
-5. **Author's final unslop pass.** Once the author considers the work
+3. **Review loop.** A fresh review agent judges the change, and whether
+   less code and fewer exported names could reach the goal. A fix agent
+   fixes. Each later round checks only the fixes, both for defects and for
+   size, at most three rounds in all. No push between rounds. Fixes land as fixup commits.
+4. **Author's final unslop pass.** Once the author considers the work
    finished, point them to `unslop` for a pass on all text they wrote or
    changed. The author edits directly, with no findings or verdict.
-6. **Open the PR.** Draft PR, short description, why before what.
-7. **Review feedback.** Fixup commits while the review runs. Rebase and
+5. **Open the PR.** Draft PR, short description, why before what.
+6. **Review feedback.** Fixup commits while the review runs. Rebase and
    autosquash when the review is green.
 
-Skills that carry each step: `way-of-working`, `simplicity-check`,
-`grilling`, `review-loop`, `technical-writing`, `unslop`,
+Skills that carry each step: `way-of-working`, `grilling`,
+`review-code`, `review-loop`, `technical-writing`, `unslop`,
 `decision-log`, `commit-message`, `pr-description`, `git-rebase`. See `skills/README.md` for the full list.
 
 ## The rules that matter most
@@ -94,8 +93,11 @@ Each rule links to the file that states it.
   change and the task, and nothing else. Each later reviewer gets the
   findings and the fix diff, and judges only the fix. A full review every
   round finds something new each time, and the loop never settles.
-- **Ask whether the code should exist before asking whether it is
-  right.** The simplicity check runs once and before the review loop.
+- **Every review judges size as well as correctness.** It lists every
+  exported name, package, flag, and option that the code under review adds,
+  counts the callers of each, and cuts the ones nobody needs. The first
+  review judges the whole change. A fix check judges only the fix diff. See
+  `skills/review-code/SKILL.md`.
 - **The spec is the reference.** Workers cannot amend the document they
   are judged against. A needed spec change goes up to me.
 
