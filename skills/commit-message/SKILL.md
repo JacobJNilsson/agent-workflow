@@ -15,6 +15,11 @@ Each commit should tell a story.
 - Tests: only mention when the "why" is about tests.
 - Language: follow the `technical-writing` and `unslop` skills. Active
   voice, one thought per sentence, plain words, one word for one meaning.
+- Voice: write the body as you would explain the change to a colleague.
+  Whole sentences, possessives instead of "of" chains, verbs instead of
+  nouns made from verbs. "The job queue work client is now the scheduler
+  of every Farm that main builds" becomes "main now gives every Farm it
+  builds the job queue work client as its scheduler."
 
 ## Audience
 
