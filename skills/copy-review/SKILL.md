@@ -55,6 +55,14 @@ different words. Propose the shortest text that keeps the load-bearing fact.
 An LLM writes comments that are too long and too complete. Cut, do not
 polish.
 
+A comment must read as if a person wrote it for a colleague. Read each one
+as that colleague would. Flag a comment that reads like generated text: a
+clause with a dropped verb, an identifier repeated beside its own gloss, a
+parameter type where the behaviour belongs, or a vague actor such as "a
+caller". Flag the "of" chains and bare names that rule 34 of the `unslop`
+skill lists.
+Propose the sentence a colleague would write.
+
 **Commit messages.** Story-driven, why before what. Apply the cold reader
 test: every claim must be actionable or verifiable from the repo or CI.
 No history of attempts. No facts about one machine. The subject states the

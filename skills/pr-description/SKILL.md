@@ -59,3 +59,7 @@ the repository, and give the reader a way to reproduce it.
 Follow the `technical-writing` and `unslop` skills. Active voice, one
 thought per sentence, plain words, one word for one meaning. Keep paragraphs
 short: maximum 6 sentences.
+
+Write the body as you would brief the reviewer in person. "An operator needs
+to see when the batches of a rollout are done" becomes "While a rollout runs,
+someone needs to see how far it has come and which batches failed."

@@ -7,6 +7,12 @@ description: Decides which code needs a comment and what that comment must answe
 
 The reader is a colleague who opens the file cold, months from now, with
 no PR thread and no chat history. Every rule below serves that reader.
+
+The writer is the person behind the code. A comment is that person
+explaining a hard problem in natural language, or guiding the reader with
+short sentences. Write it as you would say it to the colleague beside
+you, with whole sentences, articles and verbs.
+
 The `technical-writing` skill governs how a sentence reads. This skill
 governs whether a comment exists and what it must contain.
 
@@ -81,7 +87,9 @@ Do not comment these.
   rare word fits exactly, still prefer the plain one.
 - Active voice. Name the actor.
 - No em-dashes, no semicolons. Split the sentence instead.
-- Drop articles and lead-ins only where the sentence still reads one way.
+- Keep the articles and verbs. A comment with dropped words reads as
+  generated. Use possessives instead of "of" chains, as rule 34 of the
+  `unslop` skill shows.
 - One thought per sentence. One or two sentences is the norm. A longer
   comment needs a fact the reader cannot get elsewhere, and even then
   only a file or fixture comment reaches a paragraph.

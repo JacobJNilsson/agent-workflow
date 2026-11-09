@@ -100,7 +100,14 @@ Source: Kohl, The Global English Style Guide (SAS Press). Guideline text fetched
 
 ## Per text kind
 
-**Code comments.** A comment states a fact the code cannot show. It does not narrate what the next line does. One sentence is the norm, two is the limit. Most functions need no comment: the name and body say what, a comment survives only for a why. The register is terse: "Route footprint in kg CO2e per transported kg. Stamped with calculation time and change ids." Drop articles and lead-ins where the sentence still reads one way. This holds for SQL and type comments too. Say the state, not the mechanism that produced it: "a route without a footprint", not "a route no recalculation has reached". Never write a comment that answers a review. That reason belongs in the PR thread.
+**Code comments.** A comment states a fact the code cannot show. It does not narrate what the next line does. One sentence is the norm, two is the limit. Most functions need no comment: the name and body say what, a comment survives only for a why. A comment is the person behind the code explaining a hard problem in natural language, or guiding the reader with short sentences. Write whole sentences with their articles and verbs, as you would say them to a colleague. Short means few sentences, not clipped ones. This holds for SQL and type comments too.
+
+Generated comments give themselves away with parameter names used as bare nouns, "of" chains, and nouns made from verbs. Use the possessive, name the actor, and say what happens. Rule 34 of the `unslop` skill shows a parameter name used as a bare noun. Two more examples:
+
+- "the creation time of this transaction, which leaves the order open" becomes "this transaction's timestamp, so move the old one back an hour to order them."
+- "A running batch finishes." becomes "A batch that is already running finishes."
+
+The same voice holds for commit messages and PR descriptions: "A batch of a rollout that a newer rollout replaced does not start" becomes "A batch does not start when a newer rollout has replaced its rollout." Say the state, not the mechanism that produced it: "a route without a footprint", not "a route no recalculation has reached". Never write a comment that answers a review. That reason belongs in the PR thread.
 
 **Commit messages and PR descriptions.** Every layer except Diátaxis applies. The `commit-message` and `pr-description` skills hold the shape and the audience test. A PR body is a briefing that a reviewer reads in under a minute. Do not paste logs, SHA lists, or metric tables. Link them.
 
