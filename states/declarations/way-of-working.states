@@ -9,6 +9,7 @@
 ```mermaid
 flowchart LR
   SPEC["spec<br/>waits: human<br/>cap 5"]
+  SKETCH["sketch<br/>waits: human<br/>cap 5"]
   IMPL["implement<br/>waits: worker"]
   REV["review<br/>waits: reviewer"]
   TRI["triage<br/>waits: orchestrator"]
@@ -18,9 +19,13 @@ flowchart LR
   STOP(["stop"])
   DONE(["done"])
 
-  SPEC -->|"approved · human"| IMPL
+  SPEC -->|"approved · human"| SKETCH
   SPEC -->|"sent back · human"| SPEC
+  SKETCH -->|"settled"| IMPL
+  SKETCH -->|"sent back"| SKETCH
+  SKETCH -->|"moves behaviour · human"| SPEC
   IMPL -->|"tests pass"| REV
+  IMPL -->|"different shape"| SKETCH
   IMPL -->|"different change · human"| SPEC
   REV -->|"finding · cap 3"| TRI
   REV -->|"nothing to fix"| UNS
@@ -43,6 +48,7 @@ entry spec
 entry review
 
 state spec       waits=human        cap=5
+state sketch     waits=human        cap=5
 state implement  waits=worker
 state review     waits=reviewer
 state triage     waits=orchestrator
@@ -52,10 +58,15 @@ state wait       waits=human
 state stop       waits=human        terminal
 state done       waits=none         terminal
 
-spec -> implement when="the author approves the spec"                            human
+spec -> sketch    when="the author approves the spec"                            human
 spec -> spec      when="the author sends the spec back"                          human
 
+sketch -> implement when="the approver accepts the sketch"                       note="the author approves a large sketch"
+sketch -> sketch    when="the approver sends the sketch back"
+sketch -> spec      when="a correction moves product behaviour"                  human
+
 implement -> review when="the worker finished and the tests pass"
+implement -> sketch when="the worker needs a different exported signature"
 implement -> spec   when="the change turned out to be a different change"        human
 
 review -> triage when="a reviewer reported a finding"                           cap=3

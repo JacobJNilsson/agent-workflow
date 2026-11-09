@@ -1,6 +1,6 @@
 ---
 name: way-of-working
-description: Coordinate code changes through a spec, implementation worktrees, a review loop, the author's final unslop pass, and a PR. Use at the start of a feature, fix, or refactor, and when asked how we work.
+description: Coordinate code changes through a spec, a code sketch, implementation worktrees, a review loop, the author's final unslop pass, and a PR. Use at the start of a feature, fix, or refactor, and when asked how we work.
 ---
 
 # Way of working
@@ -19,7 +19,15 @@ session model when it has a higher per-token cost. Feed the findings
 back into the spec before it settles. The spec is good when the
 grilling frontier is empty and the user confirms the summary.
 
-## 2. Agent economics
+## 2. Sketch the code shape
+
+When the spec is good, run the `code-shape` skill before any brief goes out.
+The sketch names the functions, their packages, and the tests that the change
+needs. The size of the change sets the effort. A trivial change gets no
+sketch, and a new package gets rounds with the user. The findings from the
+step 1 investigation feed the sketch's search for code to reuse.
+
+## 3. Agent economics
 
 Every subagent turn resends its full context. A 200-turn worker costs
 roughly ten times what a 20-turn worker costs. These rules keep the
@@ -62,9 +70,9 @@ tier. The brief states the question and the search breadth. The
 findings come back as a conclusion, not as file dumps pasted into the
 main context.
 
-## 3. Implement in worktrees
+## 4. Implement in worktrees
 
-When the user calls the spec good, spawn implementation agents in separate
+When the sketch is settled, spawn implementation agents in separate
 git worktrees branched off origin/main. The agents write the code and
 create the commits. The main loop never writes or edits code itself, not
 even a one-line fix. It investigates, designs, briefs, and judges. Each
@@ -82,6 +90,10 @@ it: the agent must not edit, create, or remove the spec, a decision
 record, or any document the work is judged against. The agent reports a
 spec issue with its suggestion, and the managing agent decides and makes
 the change, with the user where it moves decided behaviour.
+
+Every brief also carries the sketch from step 2. Its exported signatures bind
+the agent the same way the spec does. The agent may split any function into
+private helpers. It reports any other change to the shape with its suggestion.
 
 Every brief also carries these commit rules. A mechanical rename goes in
 its own commit before the change that needs it: same signatures, callers
@@ -108,7 +120,8 @@ A brief for a run longer than one PR, or for unattended work, names a
 `decision-log` file. The worker records each fork, assumption, and revert
 there, so the user reviews a table instead of a transcript.
 
-Work test-driven as far as the work allows. Write the test from the spec,
+Work test-driven as far as the work allows. Start from the tests that the
+sketch proposes. Write each test from the spec,
 watch it fail, then write the code that makes it pass. A test written
 after the code tends to pin what the code does, not what the spec
 demands. Where test-first does not fit, the test still derives from the
@@ -117,7 +130,7 @@ fix, the regression test comes first and must fail against the unfixed
 code. Prove a doubtful test is load-bearing by reverting the change and
 watching it fail.
 
-## 4. Review loop
+## 5. Review loop
 
 Spawn a review loop on the commits, and repeat fix and review until the
 review passes. The first review also judges the size of the change. It asks
@@ -156,10 +169,11 @@ A review sometimes shows that the spec itself needs an adjustment. The
 implementation agent raises that concern, with its suggestion, to the
 managing agent. The managing agent makes the spec change — with the user
 when it moves decided behaviour — and the implementation continues against
-the updated spec. A reviewer judges the implementation against the spec as
-it stands, and flags an implementation that quietly amended it.
+the updated spec. A reviewer judges the implementation against the spec and
+the sketch as they stand, and flags an implementation that quietly amended
+either.
 
-## 5. Author's final unslop pass
+## 6. Author's final unslop pass
 
 When an author considers the work finished, point them to the `unslop`
 skill for one final pass before publication. The author applies it to all
@@ -171,7 +185,7 @@ produces no findings, verdict, or approval requirement. Do not spawn a copy
 reviewer or repeat the pass on unchanged text. Run a separate copy review
 only when the user explicitly asks for one.
 
-## 6. Open the PR
+## 7. Open the PR
 
 Create the PR as a draft unless the user says otherwise. The description
 states the problem and what the change does, in about 1000 characters. Do
@@ -183,7 +197,7 @@ The user edits PR descriptions by hand. Before you rewrite one, fetch the
 current body and keep every difference from your last version. Those
 differences are the user's deliberate edits.
 
-## 7. Review feedback
+## 8. Review feedback
 
 Before a human review starts, changes to an open PR are amends and force
 pushes. Once a human review has started, every change that answers it is a

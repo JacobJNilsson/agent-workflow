@@ -6,7 +6,8 @@ when a prompt matches, or when I type `/<name>`.
 
 | Skill | Purpose |
 | --- | --- |
-| `way-of-working` | Coordinate a code change through a spec, worktrees, a review loop, the author's final unslop pass, and a PR. |
+| `way-of-working` | Coordinate a code change through a spec, a code sketch, worktrees, a review loop, the author's final unslop pass, and a PR. |
+| `code-shape` | Sketch the functions, packages, and tests of a change before it is built. Functions first, then a search for code to reuse, then packages. The size of the change sets the effort. Exported signatures bind the implementation, and private helpers stay free. Step 2 of `way-of-working`. |
 | `review-code` | Review a change against the task, the repo rules, and the tests. Cut exported names, packages, and options that nobody needs, and delete code the change left unused. Severity levels and a verdict. Used on its own, and by `review-loop` and `review-pr`. |
 | `review-loop` | Review, fix, check the fix until clean. One full review, then fix checks, no push between rounds, three round cap. A separate agent tries to refute each finding before a fix. Nits go to the user, not to a fix round. Owns the mechanics. `review-code` owns the criteria. |
 | `review-pr` | Run `review-code` against a GitHub PR and stage the findings as one pending review. |
