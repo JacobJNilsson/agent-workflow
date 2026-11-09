@@ -124,6 +124,10 @@ review passes. The first review also judges the size of the change. It asks
 whether less code and fewer exported names could reach the goal. A size cut
 is a finding like any other, and goes through the triage below.
 
+The review judges the tests twice: whether they prove the spec, and whether a
+colleague can read them. The brief names the `legible-code` test rules as the
+rubric for the second, and pastes them, since the reviewer does not load them.
+
 ### Triage the findings before acting on them
 
 A finding is not an instruction. The same finding can be a code fix, a change

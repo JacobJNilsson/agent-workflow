@@ -15,6 +15,14 @@ serves that reader. Apply them while writing, and check them in review.
 - Helpers do two things: set up (`setup(t)` that builds the store, the
   graph and the fakes) and assert. A helper that hides the call under
   test hides what the test proves.
+- A test body holds the case, not the wiring. The database, the queue
+  client, the worker and the log capture go in one setup helper that the
+  file's tests share. The body states the inputs the case is about, makes
+  the call and states the want.
+- Two tests that repeat the same wiring lines mean the setup helper is
+  missing. Write it with the second test.
+- The error check sits on the line under the call it checks. The blank
+  lines go before the call and after its error check.
 - A test states its numbers. Three legs at 1.0 give 3.0 for their
   sequence. A reader checks that in their head.
 - The want is written out where the test is, with the value of every field

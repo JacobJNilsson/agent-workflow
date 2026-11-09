@@ -20,7 +20,10 @@ You report what you find. You do not fix it.
    anyone pushes.
 4. The code around the diff, and every caller of what the diff adds. Most cuts
    depend on code that already exists, so you have to read it.
-5. The tests over the changed code. Run them if you can.
+5. The tests over the changed code. Run them if you can. Then read each test
+   the change adds as a colleague who opens the file cold, against the test
+   rules of the `legible-code` skill. Those rules count as repo rules. Wiring
+   that repeats across test bodies is a finding.
 
 ## What counts as a finding
 
