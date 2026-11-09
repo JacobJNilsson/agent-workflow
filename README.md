@@ -82,6 +82,9 @@ Each rule links to the file that states it.
 - **The main loop coordinates. Workers produce.** The agent never writes
   code in the main conversation. It investigates, designs, and briefs a
   worker. See `skills/way-of-working/SKILL.md`, step 4.
+- **Never touch the main checkout.** All work, git work included, happens
+  in a separate worktree. The main checkout can hold uncommitted work, and
+  the live skills load from it. Same step.
 - **Briefs carry the repo guidance.** A subagent starts with an empty
   context. The harness loads no `AGENTS.md` for it. Every brief pastes
   the relevant rules. Same step.

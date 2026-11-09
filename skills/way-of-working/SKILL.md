@@ -78,6 +78,13 @@ create the commits. The main loop never writes or edits code itself, not
 even a one-line fix. It investigates, designs, briefs, and judges. Each
 worktree is removed after its branch is pushed.
 
+Never touch the main checkout. All work happens in a separate worktree,
+including git work such as commits, rebases, fixups, and pushes. Do not
+edit, commit, stash, reset, check out, or pull in the main checkout. It can
+hold the user's uncommitted work, and some tools load files from it. The
+user updates the main checkout. This rule binds the main loop and every
+subagent, so every brief states it.
+
 Every brief carries the repo's AGENTS.md and style guide rules, the
 relevant glossary terms from the spec repo, and the repo's test
 conventions. The harness loads none of that for subagents. Put "read
