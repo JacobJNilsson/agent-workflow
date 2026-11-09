@@ -52,25 +52,28 @@ The `way-of-working` skill is the spine. For a task that changes code:
 1. **Spec together.** Grill the open decisions in numbered rounds, draft
    product behaviour for the spec repo, spawn investigation agents while
    the spec forms.
-2. **Implement in worktrees.** Worker agents write the code in their own
+2. **Sketch the code shape.** List the functions, their packages, and
+   the tests before any code. Functions come first, then a search for
+   code to reuse, then packages. The size of the change sets the effort.
+3. **Implement in worktrees.** Worker agents write the code in their own
    git worktrees off `origin/main`. Each brief carries the repo's
    `AGENTS.md`, the style guide, the glossary terms, and the test rules.
    Workers may not edit the spec. Tests come from the spec, before the
    code.
-3. **Review loop.** A fresh review agent judges the change, and whether
+4. **Review loop.** A fresh review agent judges the change, and whether
    less code and fewer exported names could reach the goal. A fix agent
    fixes. Each later round checks only the fixes, both for defects and for
    size, at most three rounds in all. No push between rounds. Fixes land as fixup commits.
-4. **Author's final unslop pass.** Once the author considers the work
+5. **Author's final unslop pass.** Once the author considers the work
    finished, point them to `unslop` for a pass on all text they wrote or
    changed. The author edits directly, with no findings or verdict.
-5. **Open the PR.** Draft PR, short description, why before what.
-6. **Review feedback.** Fixup commits while the review runs. Rebase and
+6. **Open the PR.** Draft PR, short description, why before what.
+7. **Review feedback.** Fixup commits while the review runs. Rebase and
    autosquash when the review is green.
 
 Skills that carry each step: `way-of-working`, `grilling`,
 `review-code`, `review-loop`, `technical-writing`, `unslop`,
-`decision-log`, `commit-message`, `pr-description`, `git-rebase`. See `skills/README.md` for the full list.
+`code-shape`, `decision-log`, `commit-message`, `pr-description`, `git-rebase`. See `skills/README.md` for the full list.
 
 ## The rules that matter most
 
@@ -78,7 +81,7 @@ Each rule links to the file that states it.
 
 - **The main loop coordinates. Workers produce.** The agent never writes
   code in the main conversation. It investigates, designs, and briefs a
-  worker. See `skills/way-of-working/SKILL.md`, step 2.
+  worker. See `skills/way-of-working/SKILL.md`, step 4.
 - **Briefs carry the repo guidance.** A subagent starts with an empty
   context. The harness loads no `AGENTS.md` for it. Every brief pastes
   the relevant rules. Same step.
