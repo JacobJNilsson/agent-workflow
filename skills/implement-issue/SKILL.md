@@ -17,7 +17,7 @@ After completing an issue, check for the next one and continue.
 
 - `gh` CLI is authenticated.
 - The working directory is a git repository with a remote.
-- The `commit-message`, `pr-description`, and `review-loop` skills are available.
+- The `way-of-working` skill and the skills it uses are available.
 
 ## Workflow
 
@@ -50,67 +50,21 @@ For `ready for implementation` issues, continue with step 2.
 Read the issue carefully. Present the issue title and number to the user before
 continuing.
 
-### 2. Understand the problem
+### 2. Work the issue through way-of-working
 
-Before writing any code:
+Follow the `way-of-working` skill from step 1 to the draft PR. The issue is
+the input to the spec. Read the issue body, its comments, and every linked
+issue or PR before the spec step.
 
-- Read the full issue body, comments, and any linked issues or PRs.
-- Identify which parts of the codebase are affected. Use search tools to find
-  relevant files, types, and tests.
-- Understand existing conventions: frameworks, naming, patterns, test structure.
-- If the issue is ambiguous or underspecified, ask the user for clarification
-  before proceeding. Do not guess intent.
+The `ready for implementation` label counts as an approved spec. Ask the user
+only when the issue is ambiguous or leaves a product decision open. Do not
+guess what the issue means. A large code sketch still waits for the user's
+approval, as the `code-shape` skill says.
 
-### 3. Plan the approach
+The PR body references the issue with `Closes #<number>`, so the merge closes
+the issue.
 
-Think through the solution:
-
-- What changes are needed and where?
-- Are there edge cases the issue doesn't mention?
-- What tests need to be added or updated?
-- Will this require migration, configuration, or documentation changes?
-
-Do not share the plan unprompted — start implementing. If the approach involves
-a significant architectural decision or tradeoff, briefly mention it to the user
-before proceeding.
-
-### 4. Implement
-
-Create a new branch from the default branch:
-
-```sh
-git checkout -b <type>/<short-description> main
-```
-
-Work in focused, logical commits. Use the `commit-message` skill for all commit
-messages. Each commit must:
-
-- Be independently correct (tests pass, code compiles).
-- Leave the codebase in a good state on its own — if the PR ended at this
-  commit, there would be no dead code, unused methods, or dangling scaffolding.
-- Contribute something meaningful to the end goal. A commit must not merely
-  prepare for a later change by adding methods or types that nothing uses yet.
-- Refactoring commits are fine when they make subsequent changes easier to
-  understand, but the refactoring itself must stand alone as a coherent
-  improvement.
-
-After all changes are complete:
-
-- Run the project's test suite and verify it passes.
-- Run lint/typecheck commands if available.
-- Ensure full test coverage for new code.
-
-### 5. Open a pull request
-
-Push the branch and create a PR using the `pr-description` skill. Reference the
-issue in the PR body with `Closes #<number>` so it auto-closes on merge.
-
-### 6. Review loop
-
-Start the `review-loop` skill against the PR. Fix issues until the review
-passes.
-
-### 7. Done
+### 3. Done
 
 Report the PR URL to the user. Then check for the next issue and continue.
 
@@ -156,6 +110,4 @@ Then check for the next issue and continue.
 - **One issue per PR.** Do not bundle unrelated changes.
 - **Stay on track.** Only fix what the issue asks for. If you notice unrelated
   problems, note them but do not fix them in this PR.
-- **Commit early, commit often.** Logical units of work, not one giant commit.
-- **Never skip tests.** If the project has tests, new behavior gets tests.
 - **Ask when uncertain.** A question is cheaper than a wrong implementation.
