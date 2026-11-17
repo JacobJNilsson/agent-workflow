@@ -25,6 +25,7 @@ when a prompt matches, or when I type `/<name>`.
 | `layered-graph-layout` | Rules for a readable drawing of a directed graph with many nodes per rank. |
 | `implement-issue` | Pick up the next labelled GitHub issue, implement or investigate, open a reviewed PR. |
 | `git-rebase` | Interactive rebase through `GIT_SEQUENCE_EDITOR`, no editor. |
+| `youtube-transcript` | Read a YouTube video through its captions with yt-dlp: install without root, subtitles only, a VTT to text script with timestamps, and fallbacks when YouTube blocks the request. |
 | `commit-gate` | A tracked pre-commit hook that blocks a commit when lint, build, or tests fail. One install target, same targets as CI. |
 
 `~/.agents/skills/<name>` is a symlink into this directory for every skill here, so the repo is the source and the live copy at once.
