@@ -9,12 +9,12 @@ Each commit should tell a story.
 
 ## Rules
 
-- Conventional Commits: begin commit with `<type>[optional scope]:`
-- Subject: imperative mood; start capitalized; no trailing period.
-- Body: why + what (not how); include domain context if needed.
+- Run `scripts/check_commit.py <file>` on the message file until it exits
+  with 0. It checks the subject format, sentence length, dashes, and
+  attribution lines.
+- Subject in imperative mood. Body: why + what (not how), with domain context.
 - Tests: only mention when the "why" is about tests.
-- Language: follow the `technical-writing` and `unslop` skills. Active
-  voice, one thought per sentence, plain words, one word for one meaning.
+- Language: follow the `technical-writing` and `unslop` skills.
 - Voice: write the body as you would explain the change to a colleague.
   Whole sentences, possessives instead of "of" chains, verbs instead of
   nouns made from verbs. "The job queue work client is now the scheduler

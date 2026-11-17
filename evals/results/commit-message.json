@@ -1,0 +1,3085 @@
+{
+ "skill": "commit-message",
+ "model": "haiku",
+ "old_ref": "main",
+ "runs": [
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "bugfix-timeout",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0048270299999999995,
+   "turns": 8,
+   "error": "",
+   "sample": "fix(client): Raise upload timeout to 30 seconds\n\nThe upload client gave up after 3 seconds. The server can need up to\n20 seconds to process a large file, so large uploads failed on the\nclient side before the server finished. A 30-second timeout leaves\nheadroom above that 20-second worst case.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "bugfix-timeout",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00528786,
+   "turns": 9,
+   "error": "",
+   "sample": "fix(client): Raise upload timeout to 30 seconds\n\nUploads of large files failed because the client gave up after 3 seconds. The server needs up to 20 seconds to process a large file, so the client timed out while the server was still working.\n\nRaise uploadTimeout to 30 seconds. This leaves headroom above the server's worst case for large files.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "bugfix-timeout",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.005455539999999999,
+   "turns": 10,
+   "error": "",
+   "sample": "fix(client): Raise the upload timeout to 30 seconds\n\nLarge uploads failed because the client gave up after 3 seconds. The\nserver can need up to 20 seconds to process a large file. The client\nnow waits 30 seconds, which leaves room above that worst case.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "bugfix-timeout",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0033891900000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(client): Raise upload timeout to 30 seconds\n\nThe client gave up on an upload after 3 seconds. The server can take up\nto 20 seconds to process a large file, so large uploads failed before the\nserver could respond.\n\nRaise uploadTimeout to 30 seconds. This leaves the client time to wait\nfor the server's worst case.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "bugfix-timeout",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00336863,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(client): Raise upload timeout to 30 seconds\n\nThe upload client gave up after 3 seconds. The server needs up to 20\nseconds to process large files, so uploads of large files failed on the\nclient before the server finished. Raise the timeout to 30 seconds to\nleave margin above the server's worst case.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "bugfix-timeout",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00332803,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(client): Raise upload timeout to 30 seconds\n\nThe upload client gave up after 3 seconds. The server needs up to 20\nseconds to handle large files, so uploads of large files failed on the\nclient side. Raise the client timeout to 30 seconds to leave room above\nthe server's worst case.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "ci-pipeline",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00460233,
+   "turns": 7,
+   "error": "",
+   "sample": "ci: Run the test job in parallel with lint\n\nThe test job waited for lint with `needs: lint`, so the two jobs ran one after the other. Neither job uses the other's output, so the wait only added time. Both jobs now start together, and the pipeline takes as long as the slower one. A failing lint job no longer stops the test job from running.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "ci-pipeline",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00442776,
+   "turns": 7,
+   "error": "",
+   "sample": "ci: Run lint and test jobs in parallel\n\nThe test job waited for the lint job through `needs`, but neither job\nuses the other's results. The wait added the full lint run time to\nevery CI run. Without the dependency, both jobs start at once, and a\nrun takes as long as the slower job.\n\nA failing lint job no longer stops the test job from running.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "ci-pipeline",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00427197,
+   "turns": 6,
+   "error": "",
+   "sample": "ci: Run the lint and test jobs in parallel\n\nThe test job declared `needs: lint`, so GitHub Actions held it until\nlint finished. Neither job reads the other's output, so that wait only\nadded the lint run time to every CI run. Removing the dependency lets\nboth jobs start as soon as the workflow triggers.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "ci-pipeline",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0033280000000000002,
+   "turns": 5,
+   "error": "",
+   "sample": "ci: Run lint and test jobs in parallel\n\nThe test job waited for the lint job to finish. The two jobs do not\nread each other's output, so the wait added time for no benefit. The\npipeline took about 11 minutes end to end.\n\nRemove the `needs: lint` dependency from the test job. Both jobs now\nstart when the workflow starts, and the pipeline takes as long as the\nslower of the two.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "ci-pipeline",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0033231800000000002,
+   "turns": 5,
+   "error": "",
+   "sample": "ci: Run lint and test jobs in parallel\n\nThe test job waited for the lint job, but neither job uses the other's\noutput. Each CI run took the time of both jobs added together. Remove the\n`needs` dependency so both jobs start when the workflow starts.\n\nA failing lint job no longer stops the test job, so one run reports the\nresults of both.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "ci-pipeline",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00349998,
+   "turns": 5,
+   "error": "",
+   "sample": "ci: Run test job in parallel with lint\n\nThe test job waited for the lint job to finish. The two jobs do not\ndepend on each other, so the wait only added to the length of each\npipeline run.\n\nRemove the needs: lint dependency from the test job. Both jobs now\nstart when the workflow starts.\n\nA failed lint job no longer stops the test job. Test results appear\neven when lint fails.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "deps-scope",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00453671,
+   "turns": 7,
+   "error": "",
+   "sample": "chore(deps): Bump gopkg.in/yaml.v3 to v3.0.4\n\nVersions of gopkg.in/yaml.v3 before v3.0.4 let a crafted YAML file make\nthe parser use all available memory. Moving to v3.0.4 picks up the\nupstream fix, so code that parses untrusted YAML is no longer exposed\nto this.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "deps-scope",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00488905,
+   "turns": 7,
+   "error": "",
+   "sample": "fix(deps): Upgrade yaml.v3 to v3.0.4 to fix memory exhaustion\n\nWith yaml.v3 v3.0.1, a crafted YAML file can make the parser use all\navailable memory. Version 3.0.4 contains the fix, so this change raises\nthe required version in go.mod from v3.0.1 to v3.0.4.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "deps-scope",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00437135,
+   "turns": 7,
+   "error": "",
+   "sample": "fix(deps): Upgrade yaml.v3 to v3.0.4 to fix excess memory use\n\nA crafted YAML file can make gopkg.in/yaml.v3 v3.0.1 consume all\navailable memory while it parses. Version 3.0.4 contains the fix, so\nthis project now requires that version.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "deps-scope",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0035353400000000005,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(deps): Bump gopkg.in/yaml.v3 to v3.0.4\n\nVersion 3.0.1 of gopkg.in/yaml.v3 lets a crafted YAML file use all\navailable memory. Version 3.0.4 contains the fix, so this change moves\nthe module to that release.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "deps-scope",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00413847,
+   "turns": 6,
+   "error": "",
+   "sample": "fix(deps): Bump gopkg.in/yaml.v3 to v3.0.4\n\nVersion v3.0.1 of yaml.v3 lets a crafted YAML file make the parser use\nall available memory. Version v3.0.4 contains the fix, so this change\nmoves the module to that version.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "deps-scope",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00357656,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(deps): Bump yaml.v3 to 3.0.4 to fix memory exhaustion\n\nVersion 3.0.1 of gopkg.in/yaml.v3 lets a crafted YAML file consume all\navailable memory when the parser reads it. Version 3.0.4 contains the\nupstream fix. Require 3.0.4 so that this module no longer parses such\nfiles with the vulnerable version.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "docs-only",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00413062,
+   "turns": 7,
+   "error": "",
+   "sample": "docs(readme): Drop the separate setup step from the build section\n\nThe build section told readers to run `make setup` and then `make build`.\n`make build` already runs the setup step, so new contributors ran setup twice.\n\nThe section now asks only for `make build`, and says that it runs setup first.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "docs-only",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0042210500000000005,
+   "turns": 7,
+   "error": "",
+   "sample": "docs: Tell readers to run only make build\n\nThe build instructions asked readers to run make setup before make build.\nmake build already runs the setup step, so new contributors ran setup twice.\nThe README now asks for make build alone.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "docs-only",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00547662,
+   "turns": 10,
+   "error": "",
+   "sample": "docs: Remove redundant setup step from build instructions\n\nThe README told people to run `make setup` before `make build`. `make build` already runs the setup step, so new contributors ran setup twice.\n\nThe build section now tells readers to run `make build` alone. It also says that the command runs setup first.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "docs-only",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0032035500000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "docs(readme): Drop redundant setup step from build instructions\n\nThe README told readers to run `make setup` before `make build`. The\n`build` target already runs the setup step, so readers who followed the\nREADME ran setup twice. The build instructions now name only\n`make build`.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "docs-only",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0031306100000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "docs(readme): Drop redundant setup step from build instructions\n\nThe build section told readers to run `make setup` and then `make build`.\n`make build` already runs setup, so new contributors ran setup twice.\nTell readers to run `make build` alone and note that it runs setup first.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "docs-only",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00314196,
+   "turns": 5,
+   "error": "",
+   "sample": "docs(readme): Drop redundant setup step from build instructions\n\nThe README told people to run `make setup` before `make build`. But\n`make build` already runs setup, so new contributors ran setup twice.\n\nThe build section now tells people to run `make build` alone and\nnotes that it runs setup first.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "feature-long-context",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00480068,
+   "turns": 8,
+   "error": "",
+   "sample": "feat(audit): Add CSV export of the audit log\n\nEnterprise customers' compliance teams import the audit log into a\nspreadsheet every quarter. The JSON export is hard to read in that\nformat, so the CSV export gives them a file they can open directly.\n\nThe new /audit.csv route writes a header row (ts, actor, action) and\nthen one row per log entry. It streams the rows as it reads them, so\nmemory use stays flat even for logs with millions of entries.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "feature-long-context",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0044834,
+   "turns": 7,
+   "error": "",
+   "sample": "feat(audit): Add CSV export for the audit log\n\nEnterprise customers' compliance teams import the audit log into a spreadsheet every quarter. The JSON export is hard to read in a spreadsheet, so these teams asked for CSV.\n\nAdd an /audit.csv route. The response starts with a header row (ts, actor, action) and then writes one row per audit entry. It streams the rows as it reads them, so memory use stays flat even for logs with millions of entries.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "feature-long-context",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00615907,
+   "turns": 12,
+   "error": "",
+   "sample": "feat(audit): Add CSV export for the audit log\n\nEnterprise customers asked for the audit log as CSV. Their compliance\nteams import it into a spreadsheet every quarter, and the JSON export\nis hard to read in that form.\n\nThe new /audit.csv route writes a ts,actor,action header and then one\nrow per audit event. The rows are yielded one at a time as the log is\nread, so memory stays flat even for logs with millions of entries.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "feature-long-context",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "1 sentence(s) over 25 words, first: 'The rows come from the same iterator that the JSON export uses, and the response'"
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00359085,
+   "turns": 5,
+   "error": "",
+   "sample": "feat(audit): Add CSV export for the audit log\n\nEnterprise customers need the audit log as CSV. Their compliance teams\nimport it into a spreadsheet every quarter, and the JSON export is hard\nto read in that form.\n\nAdd an /audit.csv route. It writes a header row (ts, actor, action) and\nthen one row per audit event. The rows come from the same iterator that\nthe JSON export uses, and the response streams them, so memory use stays\nflat for logs with millions of entries.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "feature-long-context",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00422939,
+   "turns": 6,
+   "error": "",
+   "sample": "feat(audit): Add CSV export for the audit log\n\nEnterprise customers asked for the audit log as CSV. Their compliance\nteams import the log into a spreadsheet every quarter, and the JSON\nexport is hard to read in that tool.\n\nAdd an /audit.csv route next to /audit.json. The response starts with a\nheader row (ts, actor, action) and then writes one row per audit entry.\nA generator produces the rows and the response streams them, so memory\nuse stays flat even for logs with millions of entries.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "feature-long-context",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0035619400000000004,
+   "turns": 5,
+   "error": "",
+   "sample": "feat(audit): Add CSV export for the audit log\n\nEnterprise customers' compliance teams import the audit log into a\nspreadsheet every quarter. The JSON export is hard to read in a\nspreadsheet, so these teams need a format they can open directly.\n\nAdd a CSV export at /audit.csv. The file has a header row and one row\nper audit event with the timestamp, actor, and action.\n\nThe endpoint yields rows as it reads the log, so memory use stays flat\neven for logs with millions of entries.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "past-tense-notes",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00500718,
+   "turns": 8,
+   "error": "",
+   "sample": "fix(pay): Retry failed charges and wait for gateway in test\n\nCharge sends the card to the payment gateway once, so a single failed\ncall fails the whole checkout. Charge now retries the gateway call up\nto three times and returns the first success, or the last error if\nevery attempt fails.\n\nTestCharge waited a fixed 10 ms for the gateway to come up. When the\ntest environment was slow, the gateway was not ready in time and the\ntest failed intermittently. The test now waits until the gateway\nreports ready, so it no longer depends on timing.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "past-tense-notes",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00488541,
+   "turns": 7,
+   "error": "",
+   "sample": "fix(pay): Retry charges and wait for the gateway in tests\n\nCharge now calls the gateway up to three times before it returns an error. One failed gateway call no longer fails the payment at checkout.\n\nTestCharge slept for 10 milliseconds and assumed the gateway was ready. On a slow machine it was not, and the test failed. The test now waits until the gateway reports ready.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "past-tense-notes",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.005475230000000001,
+   "turns": 8,
+   "error": "",
+   "sample": "fix(pay): Retry card charges and wait for the gateway in TestCharge\n\nCard charges can fail on a transient gateway error. Charge now calls the gateway up to three times and returns the last error if every attempt fails.\n\nTestCharge slept for a fixed 10 ms and assumed the gateway was ready by then. On a slow machine it was not, so the checkout test failed at random. The test now waits until the gateway reports ready.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "past-tense-notes",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00399206,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(pay): Retry the charge and wait for the gateway in tests\n\nCharge now retries the gateway call up to three times before it returns\nthe error. A single failed call no longer fails the checkout.\n\nThe checkout test slept for a fixed 10 ms and assumed the gateway was\nready by then. On a slow machine it was not, so the test failed. The test\nnow waits until the gateway reports ready.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "past-tense-notes",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.003683800000000001,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(pay): Retry failed gateway charges\n\nCharge called the gateway once and returned its error, so one failed\ncall failed the whole charge. Charge now tries the gateway up to three\ntimes and returns the last error if every attempt fails.\n\nTestCharge slept for a fixed 10 milliseconds and assumed the gateway was\nready by then. The test failed whenever the machine ran slowly. It now\nwaits until the gateway reports ready, so it no longer depends on timing.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "past-tense-notes",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.004064470000000001,
+   "turns": 5,
+   "error": "",
+   "sample": "fix(pay): Retry failed charges and wait for gateway in test\n\nCharge now calls the gateway up to three times before it returns an\nerror. A transient gateway failure no longer fails the charge on the\nfirst attempt.\n\nTestCharge slept for a fixed 10 ms and assumed the gateway was ready.\nOn slow runners it was not, so the test failed at random. The test now\nwaits until the gateway reports ready and no longer depends on timing.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "perf-numbers",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.006241320000000001,
+   "turns": 13,
+   "error": "",
+   "sample": "perf(search): Load result rows with one query\n\nThe search page loaded each result row with its own database query, so\none request cost a round trip per row on the page. The 95th percentile\nlatency of the page grew with the number of rows.\n\nload() now fetches every requested item in one query that matches the\nfull list of IDs. The database does the lookup in a single round trip.\n\nRows come back in database order, not in the order of the IDs passed\nin. An ID with no matching item adds no row to the result.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "perf-numbers",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0056796500000000005,
+   "turns": 8,
+   "error": "",
+   "sample": "perf(search): Fetch search result rows in one query\n\nThe search page ran one query per result row to load the items, so each\npage paid a round trip for every row. At the 95th percentile the page took\n2.4 seconds. load now fetches all rows for the requested ids in a single\nquery with `id = any(...)`, which brought the page to about 300 ms.\n\nThe rows come back in no particular order. Callers must not rely on the\norder of the ids they passed in.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "perf-numbers",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00552833,
+   "turns": 8,
+   "error": "",
+   "sample": "perf(search): Load result rows in one query\n\nThe search page loaded each result with its own query, so one page cost one round trip per row (the N+1 problem). At the 95th percentile the page took 2.4 seconds. load() now sends all ids in one query, `id = any(%s)`, and the page takes about 300 ms at the same percentile.\n\nThe old loop returned one entry per id, in id order. The new query returns the matching rows in database order, so a caller that needs the order of ids must sort the result itself.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "perf-numbers",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00377012,
+   "turns": 6,
+   "error": "",
+   "sample": "perf(search): Load result rows with one query\n\nThe search page ran one database query per result row, which is the\nN+1 query problem. At the 95th percentile, the page took 2.4 seconds.\n\nThe results loader now fetches all requested items in one query that\nmatches on the list of ids. At the 95th percentile, the page now takes\nabout 300 ms.\n\nRows come back in database order, not in the order of ids. Ids with no\nmatching row are left out of the result instead of appearing as None.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "perf-numbers",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00360304,
+   "turns": 5,
+   "error": "",
+   "sample": "perf(search): Load result rows in one query\n\nThe search page ran one database query per result row. The number of\nqueries grew with the page size, and the page responded slowly as a\nresult. Load all rows for the requested ids with a single query instead.\n\nThe query returns only ids that exist. Before, a missing id produced\nNone in the list. The result also no longer follows the order of ids.\nCallers that depend on either behavior must change.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "perf-numbers",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00336574,
+   "turns": 5,
+   "error": "",
+   "sample": "perf(search): Load result items with one query\n\nThe search page ran one query per result row, an N+1 pattern. At the\n95th percentile, the page took 2.4 seconds to respond.\n\nLoad all items with a single query that matches every id through\n`any(%s)`. At the 95th percentile, the page now responds in about 300 ms.\n\nThe query has no ORDER BY, so rows no longer follow the order of `ids`.\nIds without a matching item are left out of the result instead of\nproducing one entry each. Callers that depend on either must sort or\ncheck the result themselves.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "refactor-rename",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.004424900000000001,
+   "turns": 7,
+   "error": "",
+   "sample": "refactor(auth): Rename Client to Session\n\nThe type holds the login state for a user, not a network client. The old name suggested otherwise and confused readers of the auth package.\n\nRename Client to Session and NewClient to NewSession, and update the caller in main.go. The file moves from auth/client.go to auth/session.go. This is a rename only, so behavior does not change.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "refactor-rename",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.005478410000000001,
+   "turns": 10,
+   "error": "",
+   "sample": "refactor(auth): Rename Client to Session\n\nThe auth.Client type holds the login state, not a network client. The\nname suggested the latter and misled readers of the auth package, so\nrename the type to Session. NewClient becomes NewSession, and the file\nmoves from auth/client.go to auth/session.go to match.\n\nThis is a rename only. Behavior does not change.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "refactor-rename",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00439124,
+   "turns": 7,
+   "error": "",
+   "sample": "refactor(auth): Rename Client to Session\n\nThe type in auth/client.go holds the login state for a token. It does\nnot talk to the network. The name Client sent new readers looking for\na network client, and they misread the type. Rename it to Session, move\nit to auth/session.go, and rename its constructor to NewSession. Update\nthe caller in main.go to match.\n\nThis is a rename only. Behavior does not change.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "refactor-rename",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0037263100000000005,
+   "turns": 5,
+   "error": "",
+   "sample": "refactor(auth): Rename Client to Session\n\nThe type in auth/client.go holds the login state: an access token. It\ndoes not talk to the network. The name Client suggested a network client\nand misled readers of the code. Rename the type to Session, its\nconstructor to NewSession, and the file to auth/session.go. Update the\ncaller in main.go to match.\n\nThis commit changes names only. Behavior stays the same.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "refactor-rename",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0033273700000000005,
+   "turns": 5,
+   "error": "",
+   "sample": "refactor(auth): Rename Client to Session\n\nThe Client type holds login state, not a network client. The old name\nsuggested the wrong purpose to readers of the auth package. Rename the\ntype to Session and its constructor to NewSession, and update the\ncaller in main.go.\n\nThis is a rename only. Behavior does not change.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "refactor-rename",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00335923,
+   "turns": 5,
+   "error": "",
+   "sample": "refactor(auth): Rename Client to Session\n\nThe Client type holds the login token, not a network client. Its name\nmisled readers into looking for a connection.\n\nRename the type to Session and its constructor NewClient to NewSession.\nMove the file from auth/client.go to auth/session.go, and update the\none caller in main.go. Behavior does not change.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "test-only",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00452866,
+   "turns": 7,
+   "error": "",
+   "sample": "test(cart): Cover rejection of expired coupons\n\nNo test checked that an expired coupon is refused. Bug #412 let expired\ncoupons apply to a cart, and the existing tests did not catch it.\n\nTestExpiredCouponIsRejected builds a coupon that expired an hour ago and\nexpects Apply to return an error.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "test-only",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00477184,
+   "turns": 9,
+   "error": "",
+   "sample": "test: Cover rejection of expired coupons\n\nCoupon.Apply has to refuse a coupon whose Expires time has passed, but\nno test checked that case. The existing test only covers a coupon that\nis still valid. Issue #412 was a bug where an expired coupon was\naccepted, and this test would have caught it.\n\nThe new test builds a coupon that expired an hour ago and asserts that\nApply returns an error.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "new",
+   "case": "test-only",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00441292,
+   "turns": 7,
+   "error": "",
+   "sample": "test(cart): Cover rejection of expired coupons\n\nBug #412 let customers apply a coupon after its expiry date. No test\ncovered the expired case, so the suite passed while the bug was live.\n\nThe new test applies a coupon that expired an hour ago to an empty cart\nand expects Apply to return an error.\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "test-only",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": false,
+     "detail": "found 'Co-Authored-By'"
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0033832700000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "test(cart): Cover rejection of expired coupons\n\nBug #412 let an expired coupon apply to a cart. No test covered an\nexpired coupon, so the bug reached users without a failing test.\n\nAdd a test that applies a coupon that expired one hour ago and expects\nan error. This keeps the expiry check in Coupon.Apply under test.\n\nCo-Authored-By: Claude Haiku 5.5 <noreply@anthropic.com>\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "test-only",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0033742100000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "test(cart): Cover rejection of expired coupons\n\nNo test checked that an expired coupon is rejected, so bug #412 went\nunnoticed. Add a test that applies a coupon that expired one hour ago\nand expects an error.\n\nRefs #412\n"
+  },
+  {
+   "skill": "commit-message",
+   "arm": "old",
+   "case": "test-only",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_first_line",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "msg.txt",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0033331500000000004,
+   "turns": 5,
+   "error": "",
+   "sample": "test(cart): Cover rejection of expired coupons\n\nNo test checked that an expired coupon fails to apply, so the bug in\n#412 shipped without a failing test. Add a test that applies a coupon\nwhich expired one hour ago and expects an error from Apply.\n\nRefs #412\n"
+  }
+ ]
+}

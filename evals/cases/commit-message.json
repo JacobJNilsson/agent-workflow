@@ -1,0 +1,87 @@
+{
+  "skill": "commit-message",
+  "note": "Each case gives a staged diff and the author's notes. The agent writes msg.txt. Scripts grade the format rules of the skill. The notes tempt the agent to break them.",
+  "cases": [
+    {
+      "id": "bugfix-timeout",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: the upload client waited 3 seconds and then gave up, but the server needs up to 20 seconds on large files, so big uploads failed — fixed it by raising the timeout to 30 seconds; also added a test. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "fix",
+      "files": {
+        "change.diff": "diff --git a/client/upload.go b/client/upload.go\n--- a/client/upload.go\n+++ b/client/upload.go\n@@ -12,7 +12,7 @@ import (\n )\n \n-const uploadTimeout = 3 * time.Second\n+const uploadTimeout = 30 * time.Second\n \n func Upload(ctx context.Context, f File) error {\n \tctx, cancel := context.WithTimeout(ctx, uploadTimeout)\n"
+      }
+    },
+    {
+      "id": "feature-long-context",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: customers on the enterprise plan asked for a way to export their audit log as CSV because their compliance team imports it into a spreadsheet every quarter and the JSON export is unreadable for them; the endpoint streams rows so memory stays flat even for logs with millions of entries. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "feat",
+      "files": {
+        "change.diff": "diff --git a/api/audit.py b/api/audit.py\n--- a/api/audit.py\n+++ b/api/audit.py\n@@ -40,3 +40,15 @@ def export_json(org):\n     return Response(stream_json(org), mimetype='application/json')\n+\n+\n+def export_csv(org):\n+    def rows():\n+        yield 'ts,actor,action\\n'\n+        for e in iter_audit_log(org):\n+            yield f'{e.ts},{e.actor},{e.action}\\n'\n+    return Response(rows(), mimetype='text/csv')\ndiff --git a/api/routes.py b/api/routes.py\n--- a/api/routes.py\n+++ b/api/routes.py\n@@ -8,3 +8,4 @@ routes = [\n     ('/audit.json', audit.export_json),\n+    ('/audit.csv', audit.export_csv),\n ]\n"
+      }
+    },
+    {
+      "id": "docs-only",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: the README told people to run `make setup` before `make build`, but `make build` already runs setup, so new people ran setup twice. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "docs",
+      "files": {
+        "change.diff": "diff --git a/README.md b/README.md\n--- a/README.md\n+++ b/README.md\n@@ -20,5 +20,4 @@ ## Build\n-Run `make setup`, then run `make build`.\n+Run `make build`. It runs the setup step first.\n"
+      }
+    },
+    {
+      "id": "refactor-rename",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: renamed Client to Session everywhere because the type holds the login state and not a network client, which confused two new colleagues last month. No behavior change. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "refactor",
+      "files": {
+        "change.diff": "diff --git a/auth/client.go b/auth/session.go\nsimilarity index 91%\nrename from auth/client.go\nrename to auth/session.go\n--- a/auth/client.go\n+++ b/auth/session.go\n@@ -1,6 +1,6 @@\n-type Client struct {\n+type Session struct {\n \ttoken string\n }\n-func NewClient(t string) *Client { return &Client{token: t} }\n+func NewSession(t string) *Session { return &Session{token: t} }\ndiff --git a/main.go b/main.go\n--- a/main.go\n+++ b/main.go\n@@ -9,3 +9,3 @@ func main() {\n-\tc := auth.NewClient(os.Getenv(\"TOKEN\"))\n+\ts := auth.NewSession(os.Getenv(\"TOKEN\"))\n"
+      }
+    },
+    {
+      "id": "past-tense-notes",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: Added a retry around the payment call; fixed the flaky checkout test — it failed whenever the sandbox was slow. Both in this one commit. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "files": {
+        "change.diff": "diff --git a/pay/charge.go b/pay/charge.go\n--- a/pay/charge.go\n+++ b/pay/charge.go\n@@ -20,4 +20,10 @@ func Charge(c Card, amount int) error {\n-\treturn gateway.Do(c, amount)\n+\tvar err error\n+\tfor i := 0; i < 3; i++ {\n+\t\tif err = gateway.Do(c, amount); err == nil {\n+\t\t\treturn nil\n+\t\t}\n+\t}\n+\treturn err\n }\ndiff --git a/pay/charge_test.go b/pay/charge_test.go\n--- a/pay/charge_test.go\n+++ b/pay/charge_test.go\n@@ -5,3 +5,3 @@ func TestCharge(t *testing.T) {\n-\ttime.Sleep(10 * time.Millisecond)\n+\twaitFor(t, gatewayReady)\n"
+      }
+    },
+    {
+      "id": "perf-numbers",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: the search page took 2.4 seconds at the 95th percentile because we ran one query per result row (the N+1 problem). One joined query brings it to 300 ms. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "perf",
+      "files": {
+        "change.diff": "diff --git a/search/results.py b/search/results.py\n--- a/search/results.py\n+++ b/search/results.py\n@@ -14,6 +14,5 @@ def load(ids):\n-    rows = []\n-    for i in ids:\n-        rows.append(db.one('select * from items where id = %s', i))\n-    return rows\n+    return db.all('select * from items where id = any(%s)', ids)\n"
+      }
+    },
+    {
+      "id": "test-only",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: we had no test for the case where the coupon is expired; the bug from last week (#412) would have been caught by it. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "test",
+      "files": {
+        "change.diff": "diff --git a/cart/coupon_test.go b/cart/coupon_test.go\n--- a/cart/coupon_test.go\n+++ b/cart/coupon_test.go\n@@ -30,3 +30,11 @@ func TestCouponApplies(t *testing.T) {\n }\n+\n+func TestExpiredCouponIsRejected(t *testing.T) {\n+\tc := Coupon{Code: \"X\", Expires: time.Now().Add(-time.Hour)}\n+\tif err := c.Apply(&Cart{}); err == nil {\n+\t\tt.Fatal(\"expired coupon was accepted\")\n+\t}\n+}\n"
+      }
+    },
+    {
+      "id": "deps-scope",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: bumped the yaml library from 3.0.1 to 3.0.4 to get the fix for the CVE that lets a crafted file use all memory. Use the scope deps. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "chore|build|fix",
+      "scope": "deps",
+      "files": {
+        "change.diff": "diff --git a/go.mod b/go.mod\n--- a/go.mod\n+++ b/go.mod\n@@ -5,3 +5,3 @@ require (\n-\tgopkg.in/yaml.v3 v3.0.1\n+\tgopkg.in/yaml.v3 v3.0.4\n )\n"
+      }
+    },
+    {
+      "id": "ci-pipeline",
+      "prompt": "Use the commit-message skill. The staged change is in change.diff. Author notes: CI ran the lint job and the test job one after the other, 11 minutes in total. They do not depend on each other, so I made them run side by side. Write the commit message to msg.txt. Do not run git commit.",
+      "preset": "commit",
+      "type": "ci",
+      "files": {
+        "change.diff": "diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml\n--- a/.github/workflows/ci.yml\n+++ b/.github/workflows/ci.yml\n@@ -12,5 +12,4 @@ jobs:\n   test:\n-    needs: lint\n     runs-on: ubuntu-latest\n"
+      }
+    }
+  ]
+}
