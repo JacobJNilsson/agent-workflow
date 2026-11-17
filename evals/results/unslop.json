@@ -1,0 +1,3823 @@
+{
+ "skill": "unslop",
+ "model": "haiku",
+ "old_ref": "main",
+ "runs": [
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "ai-vocabulary",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00408144,
+   "turns": 7,
+   "error": "",
+   "sample": "## Overview\n\nThe cache layer is a core part of the platform. It has several eviction policies that show the trade-off between memory and latency. The default TTL is 600 seconds. Teams can use the `ttl` setting to improve hit rates, and many already do.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "ai-vocabulary",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00418331,
+   "turns": 7,
+   "error": "",
+   "sample": "## Overview\n\nThe cache layer is a core part of the platform. It has several eviction policies, which trade memory against latency. The default TTL is 600 seconds. Teams can use the `ttl` setting to raise hit rates, and many teams already do.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "ai-vocabulary",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0043082400000000005,
+   "turns": 7,
+   "error": "",
+   "sample": "## Overview\n\nThe cache layer is a central component of the platform. It also has several eviction policies, which trade memory use against latency. The default TTL is 600 seconds. Teams can use the `ttl` setting to raise hit rates, and many teams already do.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "ai-vocabulary",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0037362700000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "## Overview\n\nThe cache layer is a core part of the platform. It offers several eviction policies, which govern how memory use and latency trade off. The default TTL is 600 seconds. Teams can set the `ttl` setting to raise hit rates, and many already do.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "ai-vocabulary",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00354491,
+   "turns": 5,
+   "error": "",
+   "sample": "## Overview\n\nThe cache layer is a core part of the platform. It has several eviction policies, and they balance memory use against latency. The default TTL is 600 seconds. Teams can set the `ttl` setting to raise hit rates, and many teams already do.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "ai-vocabulary",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00361491,
+   "turns": 5,
+   "error": "",
+   "sample": "## Overview\n\nThe cache layer is a core component of the platform. It has several eviction policies, which trade memory use against latency. The default TTL is 600 seconds. Teams can use the `ttl` setting to raise hit rates, and many teams already do.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "code-block-kept",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00394269,
+   "turns": 7,
+   "error": "",
+   "sample": "To clean only the cache, run the command below. It deletes every entry older than 7 days. It prints the number of entries it removed, so you can confirm that the job did something.\n\n```sh\ncache prune --older-than 7d; echo done\n```\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "code-block-kept",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.003950970000000001,
+   "turns": 7,
+   "error": "",
+   "sample": "To clean the cache, and only the cache, run the command below. It deletes every entry older than 7 days and prints the number of entries it removed. The count lets you confirm that the job did something.\n\n```sh\ncache prune --older-than 7d; echo done\n```\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "code-block-kept",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00408056,
+   "turns": 7,
+   "error": "",
+   "sample": "To clean only the cache, run the command below. It deletes every entry older than 7 days and prints the number of entries it removed. That count lets you confirm the job did something.\n\n```sh\ncache prune --older-than 7d; echo done\n```\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "code-block-kept",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00347402,
+   "turns": 5,
+   "error": "",
+   "sample": "To clean the cache, and only the cache, run the command below. It deletes every entry older than 7 days and prints the number of entries it removed. Use that count to check whether anything was removed.\n\n```sh\ncache prune --older-than 7d; echo done\n```\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "code-block-kept",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0035720400000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "To clean the cache, and only the cache, run the command below. It deletes every entry older than 7 days. It then prints the number of entries it removed, so you can check that it deleted something.\n\n```sh\ncache prune --older-than 7d; echo done\n```\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "code-block-kept",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0038840000000000003,
+   "turns": 5,
+   "error": "",
+   "sample": "Run the command below to clean the cache and nothing else. It deletes every entry older than 7 days and prints the number of entries it removed, so you can confirm the job did something.\n\n```sh\ncache prune --older-than 7d; echo done\n```\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "hyphen-dashes",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.004001070000000001,
+   "turns": 7,
+   "error": "",
+   "sample": "The scheduler wakes every 5 minutes, not every minute as before, and claims at most 20 jobs. A job that fails twice goes to the dead-letter queue. An operator then decides what to do with it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "hyphen-dashes",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00402941,
+   "turns": 7,
+   "error": "",
+   "sample": "The scheduler wakes every 5 minutes, not every minute as before, and claims at most 20 jobs. A job that fails twice goes to the dead-letter queue. An operator then decides what to do with it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "hyphen-dashes",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00394182,
+   "turns": 7,
+   "error": "",
+   "sample": "The scheduler wakes every 5 minutes, not every minute as before, and claims at most 20 jobs. A job that fails twice goes to the dead-letter queue, where an operator decides what to do with it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "hyphen-dashes",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00388049,
+   "turns": 6,
+   "error": "",
+   "sample": "The scheduler now wakes every 5 minutes instead of every minute, and it claims at most 20 jobs. A job that fails twice goes to the dead-letter queue. An operator then decides what to do with it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "hyphen-dashes",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00340213,
+   "turns": 5,
+   "error": "",
+   "sample": "The scheduler now wakes every 5 minutes instead of every minute, and claims at most 20 jobs. A job that fails twice goes to the dead-letter queue. An operator then decides what to do with it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "hyphen-dashes",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00335467,
+   "turns": 5,
+   "error": "",
+   "sample": "The scheduler wakes every 5 minutes. It used to wake every minute. Each wake claims at most 20 jobs. A job that fails twice goes to the dead-letter queue. An operator then decides what to do with it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "long-doc-mixed",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00540796,
+   "turns": 10,
+   "error": "",
+   "sample": "# Alerting guide\n\n## Overview\n\nThe alerting module is the backbone of our on-call process. It makes sure the right person hears about an incident within 2 minutes of the first failed health check. The probe runs that check every 20 seconds against each of the 14 production services.\n\n## Routing\n\nEvery alert carries a severity from 1 to 4. Severity 1 pages the primary on-call, and severity 2 pages the secondary. Alerts of severity 3 and 4 go to the `#ops-low` channel. Nobody is paged, because these alerts rarely need a human to act within the hour.\n\n## Silencing\n\nTo silence an alert, run `alertctl silence <id> --for 2h`. Silences hide real failures, so a silence expires after at most 24 hours. The tool prints a reminder naming the alert, the person who created the silence, and the time the silence ends. The next shift can see that reminder.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "long-doc-mixed",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00468301,
+   "turns": 9,
+   "error": "",
+   "sample": "# Alerting guide\n\n## Overview\n\nThe alerting module is the core of our on-call process. It makes sure the right person hears about an incident within 2 minutes of the first failed health check. The probe runs every 20 seconds against each of the 14 production services.\n\n## Routing\n\nEvery alert has a severity from 1 to 4. Severity 1 pages the primary on-call. Severity 2 pages the secondary. Severity 3 and 4 go to the `#ops-low` channel, and nobody is paged, because they rarely need a human to act within the hour.\n\n## Silencing\n\nTo silence an alert, run `alertctl silence <id> --for 2h`. Silences hide real failures, so a silence expires after at most 24 hours. The tool prints a reminder when you create the silence. It names the alert, the person who created the silence, and the time it ends. The next shift can see it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "long-doc-mixed",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00412492,
+   "turns": 7,
+   "error": "",
+   "sample": "# Alerting guide\n\n## Overview\n\nThe alerting module is the core of our on-call process. It makes sure the right person hears about an incident within 2 minutes of the first failed health check. The probe runs every 20 seconds against each of the 14 production services.\n\n## Routing\n\nEvery alert carries a severity from 1 to 4. Severity 1 pages the primary on-call, and severity 2 pages the secondary. Alerts of severity 3 and 4 go to the `#ops-low` channel, and nobody is paged. They rarely need a human to act within the hour.\n\n## Silencing\n\nTo silence an alert, run `alertctl silence <id> --for 2h`. Silences hide real failures, so a silence expires after at most 24 hours. The tool prints a reminder that names the alert, the person who created the silence, and the time the silence ends. The next shift can then see it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "long-doc-mixed",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00379432,
+   "turns": 5,
+   "error": "",
+   "sample": "# Alerting guide\n\n## Overview\n\nThe alerting module is central to our on-call process. It makes sure the right person hears about an incident within 2 minutes of the first failed health check. The probe runs every 20 seconds against each of the 14 production services.\n\n## Routing\n\nEvery alert has a severity from 1 to 4. Severity 1 pages the primary on-call. Severity 2 pages the secondary. Severity 3 and 4 go to the `#ops-low` channel, and nobody is paged. These alerts rarely need a human to act within the hour.\n\n## Silencing\n\nTo silence an alert, run `alertctl silence <id> --for 2h`. Silences hide real failures, so a silence expires after at most 24 hours. The tool prints a reminder that names the alert, the person who created the silence, and the time the silence ends. The next shift can see it there.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "long-doc-mixed",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": false,
+     "detail": "1 sentence(s) over 25 words, first: 'The tool prints a reminder that names the alert, the person who created the sile'"
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00380672,
+   "turns": 5,
+   "error": "",
+   "sample": "# Alerting guide\n\n## Overview\n\nThe alerting module runs our on-call process. It makes sure the right person hears about an incident within 2 minutes of the first failed health check. The probe checks each of the 14 production services every 20 seconds.\n\n## Routing\n\nEvery alert has a severity from 1 to 4. Severity 1 pages the primary on-call. Severity 2 pages the secondary. Severity 3 and 4 go to the `#ops-low` channel, and nobody is paged, because these rarely need a person to act within the hour.\n\n## Silencing\n\nTo silence an alert, run `alertctl silence <id> --for 2h`. Silences hide real failures, so a silence expires after at most 24 hours. The tool prints a reminder that names the alert, the person who created the silence, and the time the silence ends, so the next shift can see it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "long-doc-mixed",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": false,
+     "detail": "1 sentence(s) over 25 words, first: 'The tool prints a reminder that names the alert, the person who created the sile'"
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00381506,
+   "turns": 5,
+   "error": "",
+   "sample": "# Alerting guide\n\n## Overview\n\nThe alerting module is the backbone of our on-call process. It notifies the right person within 2 minutes of the first failed health check. The probe checks each of the 14 production services every 20 seconds.\n\n## Routing\n\nEvery alert has a severity from 1 to 4. Severity 1 pages the primary on-call. Severity 2 pages the secondary. Severity 3 and 4 go to the `#ops-low` channel, and nobody is paged, because they rarely need a human to act within the hour.\n\n## Silencing\n\nTo silence an alert, run `alertctl silence <id> --for 2h`. Silences hide real failures, so a silence expires after at most 24 hours. The tool prints a reminder that names the alert, the person who created the silence, and the time the silence ends, so the next shift can see it.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "long-sentences",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00430682,
+   "turns": 7,
+   "error": "",
+   "sample": "The billing service reads every invoice that the import job writes to the invoices table. It groups the rows by customer and by currency. It converts each group to euros using the rate that the finance team publishes on the first day of the month. Then it writes one summary row per customer to the reports table. If the rate for a currency is missing, the service skips that currency and logs a warning that names the currency. The summary for the affected customer stays incomplete until someone adds the rate and reruns the job by hand.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "long-sentences",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.004218240000000001,
+   "turns": 7,
+   "error": "",
+   "sample": "The billing service reads every invoice that the import job writes to the invoices table. It groups the rows by customer and by currency. It converts each group to euros with the rate that the finance team publishes on the first day of the month. Then it writes one summary row per customer to the reports table.\n\nIf the rate for a currency is missing, the service skips that currency and logs a warning that names it. The summary for the affected customer stays incomplete until someone adds the rate and reruns the job by hand.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "long-sentences",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00434686,
+   "turns": 7,
+   "error": "",
+   "sample": "The billing service reads every invoice that the import job writes to the invoices table. It groups the rows by customer and by currency, and it converts each group to euros. It uses the rate that the finance team publishes on the first day of the month. Then it writes one summary row per customer to the reports table. If the rate for a currency is missing, the service skips that currency and logs a warning that names it. The summary for the affected customer stays incomplete until someone adds the rate and reruns the job by hand.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "long-sentences",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": false,
+     "detail": "1 sentence(s) over 25 words, first: 'It groups the rows by customer and currency, and converts each group to euros us'"
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00360017,
+   "turns": 5,
+   "error": "",
+   "sample": "The billing service reads every invoice the import job writes to the invoices table. It groups the rows by customer and currency, and converts each group to euros using the rate finance publishes on the first day of the month. It then writes one summary row per customer to the reports table. If a currency has no rate, the service skips that currency and logs a warning naming it. The affected customer's summary stays incomplete until someone adds the rate and reruns the job by hand.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "long-sentences",
+   "run": 2,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": false,
+     "detail": "1 sentence(s) over 25 words, first: 'It groups the rows by customer and currency, and converts each group to euros at'"
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00346459,
+   "turns": 5,
+   "error": "",
+   "sample": "The billing service reads every invoice that the import job writes to the invoices table. It groups the rows by customer and currency, and converts each group to euros at the rate the finance team publishes on the first day of the month. It then writes one summary row per customer to the reports table. If a currency has no rate, the service skips that currency and logs a warning that names it. The affected customer's summary stays incomplete until someone adds the rate and reruns the job by hand.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "long-sentences",
+   "run": 3,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": false,
+     "detail": "1 sentence(s) over 25 words, first: 'It groups the rows by customer and by currency, and converts each group to euros'"
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0036359900000000004,
+   "turns": 5,
+   "error": "",
+   "sample": "The billing service reads every invoice that the import job writes to the invoices table. It groups the rows by customer and by currency, and converts each group to euros using the rate the finance team publishes on the first day of the month. It then writes one summary row per customer to the reports table. If the rate for a currency is missing, the service skips that currency and logs a warning that names it. The summary for the affected customer stays incomplete until someone adds the rate and reruns the job by hand.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "many-long-sentences",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00415711,
+   "turns": 7,
+   "error": "",
+   "sample": "When a user signs up, the service creates an account row and sends a confirmation email. The email contains a link that expires after 48 hours. The service also schedules a reminder that runs 24 hours later if the user has not yet clicked the link.\n\nIf the user clicks the link after the account has expired, the service shows an error page. The page offers to send a new link. The service also deletes the old account row, so the email address can register again without a support ticket.\n\nThe cleanup job runs every night at 02:00 UTC. It scans the accounts table for rows that stayed unconfirmed for more than 7 days. It removes those rows together with any files the user uploaded in the meantime, which keeps the storage bill predictable.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "many-long-sentences",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.004620290000000001,
+   "turns": 8,
+   "error": "",
+   "sample": "When a user signs up, the service creates an account row. It sends a confirmation email with a link that expires after 48 hours. It also schedules a reminder that runs 24 hours later if the user has not yet clicked the link.\n\nIf the user clicks the link after it has expired, the service shows an error page with an option to send a new link. It also deletes the old account row, so the email address can register again without a support ticket.\n\nThe cleanup job runs every night at 02:00 UTC. It scans the accounts table for rows that stayed unconfirmed for more than 7 days. It removes those rows along with any files the user uploaded in the meantime, which keeps the storage bill predictable.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "many-long-sentences",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0042897,
+   "turns": 7,
+   "error": "",
+   "sample": "When a user signs up, the service creates an account row and sends a confirmation email. The link in that email expires after 48 hours. The service also schedules a reminder to run 24 hours later if the user has not yet clicked the link. If the user clicks the link after it has expired, the service shows an error page that offers to send a new link. It also deletes the old account row, so the email address can register again without a support ticket. The cleanup job runs every night at 02:00 UTC. It scans the accounts table for rows that stayed unconfirmed for more than 7 days. It removes those rows and any files the user uploaded in the meantime, which keeps the storage bill predictable.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "many-long-sentences",
+   "run": 1,
+   "passed": false,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": false,
+     "detail": "1 sentence(s) over 25 words, first: 'It scans the accounts table for rows that have stayed unconfirmed for more than '"
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0038390300000000002,
+   "turns": 5,
+   "error": "",
+   "sample": "When a user signs up, the service creates an account row and sends a confirmation email. The email contains a link that expires after 48 hours. The service also schedules a reminder to run 24 hours later, if the user still has not clicked the link. If the user clicks the link after it has expired, the service shows an error page with an option to send a new link. It also deletes the old account row, so the email address can register again without a support ticket. The cleanup job runs every night at 02:00 UTC. It scans the accounts table for rows that have stayed unconfirmed for more than 7 days, and removes them along with any files the user uploaded in the meantime. This keeps the storage bill predictable.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "many-long-sentences",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00375807,
+   "turns": 5,
+   "error": "",
+   "sample": "When a user signs up, the service creates an account row and sends a confirmation email. The link in the email expires after 48 hours. The service also schedules a reminder to run 24 hours later if the user has not yet clicked the link.\n\nIf the user clicks the link after it has expired, the service shows an error page with an option to send a new link. It also deletes the old account row, so the email address can register again without a support ticket.\n\nThe cleanup job runs every night at 02:00 UTC. It scans the accounts table for rows that have stayed unconfirmed for more than 7 days. It removes those rows along with any files the user uploaded in the meantime. This keeps the storage bill predictable.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "many-long-sentences",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00368511,
+   "turns": 5,
+   "error": "",
+   "sample": "When a user signs up, the service creates an account row and sends a confirmation email. The email contains a link that expires after 48 hours. If the user has not clicked the link 24 hours later, the service sends a reminder.\n\nIf the user clicks the link after it has expired, the service shows an error page with an option to send a new link. It also deletes the old account row, so the email address can register again without a support ticket.\n\nThe cleanup job runs every night at 02:00 UTC. It scans the accounts table for rows that stayed unconfirmed for more than 7 days. It removes those rows along with any files the user uploaded in the meantime. This keeps storage costs predictable.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "one-long-sentence",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0040071,
+   "turns": 7,
+   "error": "",
+   "sample": "The export is fast. It writes 50,000 rows per second to the local disk. When the disk is full, the export stops at the last complete row and exits with code 3. A wrapper script can then free space and restart the export from the row where it stopped, without losing data. The log shows the row number.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "one-long-sentence",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.004105940000000001,
+   "turns": 7,
+   "error": "",
+   "sample": "The export writes 50,000 rows per second to the local disk. When the disk fills up, the export stops after the last complete row and exits with code 3. A wrapper script can then free space and restart the export from the row where it stopped, so no data is lost. The log shows that row number.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "one-long-sentence",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00403738,
+   "turns": 7,
+   "error": "",
+   "sample": "The export is fast. It writes 50,000 rows per second to the local disk. When the disk is full, the export stops at the last complete row and exits with code 3. A wrapper script can then free space and restart the export from the row where it stopped, without losing data. The log shows the row number.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "one-long-sentence",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0034434700000000006,
+   "turns": 5,
+   "error": "",
+   "sample": "The export is fast. It writes 50,000 rows per second to the local disk. When the disk fills up, the export stops at the last complete row and exits with code 3. A wrapper script can then free space and restart the export from the row where it stopped, without losing data. The log shows the row number.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "one-long-sentence",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00355923,
+   "turns": 5,
+   "error": "",
+   "sample": "The export writes 50,000 rows per second to the local disk. When the disk fills up, the export stops after the last complete row and exits with code 3. A wrapper script can then free space and restart the export from the row where it stopped, so no data is lost. The log shows the row number.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "one-long-sentence",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0034405700000000004,
+   "turns": 5,
+   "error": "",
+   "sample": "The export is fast. It writes 50,000 rows per second to the local disk. When the disk is full, the export stops at the last complete row and exits with code 3. A wrapper script can then free space and restart the export from the row where it stopped, without losing data. The log shows the row number.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "pr-body-list",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0040576,
+   "turns": 7,
+   "error": "",
+   "sample": "Orders sometimes show the wrong total. This PR fixes that.\n\n- The total is now computed once, in `Order.total()`, instead of in three places. This removes the rounding drift.\n- The checkout page also reads the total from the API instead of computing it in the browser. The customer sees the same number the invoice shows after the payment is captured.\n- The migration backfills 1,204 orders.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "pr-body-list",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00403377,
+   "turns": 7,
+   "error": "",
+   "sample": "Orders sometimes show the wrong total. This PR fixes that.\n\n- The total is now computed once, in `Order.total()`, instead of in three places. This removes the rounding drift.\n- The checkout page now reads the total from the API instead of computing it in the browser. The customer sees the same number the invoice shows after the payment is captured.\n- The migration backfills 1,204 orders.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "pr-body-list",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.004098600000000001,
+   "turns": 7,
+   "error": "",
+   "sample": "Orders sometimes show the wrong total. This PR fixes that.\n\n- The total is now computed once, in `Order.total()`, instead of in three places. This removes the rounding drift.\n- The checkout page reads the total from the API instead of computing it in the browser. The customer now sees the same number the invoice shows after the payment is captured.\n- The migration backfills 1,204 orders.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "pr-body-list",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0035730200000000005,
+   "turns": 5,
+   "error": "",
+   "sample": "Some orders show the wrong total. This PR fixes that.\n\n- The total is now computed in one place, `Order.total()`, instead of in three. This removes the rounding drift.\n- The checkout page reads the total from the API instead of computing it in the browser. The customer now sees the same number the invoice shows after payment is captured.\n- The migration backfills 1,204 orders.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "pr-body-list",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0034726,
+   "turns": 5,
+   "error": "",
+   "sample": "Orders sometimes show the wrong total. This PR fixes that.\n\n- The total is now computed once, in `Order.total()`, instead of in three places. This removes the rounding drift.\n- The checkout page now reads the total from the API instead of computing it in the browser. The customer sees the same number the invoice shows after payment is captured.\n- The migration backfills 1,204 orders.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "pr-body-list",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00347294,
+   "turns": 5,
+   "error": "",
+   "sample": "Orders sometimes show the wrong total. This PR fixes that.\n\n- The total is now computed once, in `Order.total()`, instead of in three places. This removes the rounding drift.\n- The checkout page now reads the total from the API instead of computing it in the browser. The customer sees the same number the invoice shows after payment is captured.\n- The migration backfills 1,204 orders.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "quotes-and-filler",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0038273300000000003,
+   "turns": 7,
+   "error": "",
+   "sample": "To start the importer, set \"mode\" to 'fast' in `import.toml`. Because the importer holds a lock, only one instance can run per host. The lock file is `/var/run/importer.lock`.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "quotes-and-filler",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00392652,
+   "turns": 7,
+   "error": "",
+   "sample": "To start the importer, set \"mode\" to 'fast' in `import.toml`. Because the importer holds a lock, only one instance can run per host. The lock file lives in `/var/run/importer.lock`.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "quotes-and-filler",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.00403243,
+   "turns": 7,
+   "error": "",
+   "sample": "To start the importer, set \"mode\" to \"fast\" in `import.toml`. Because the importer holds a lock, only one instance can run per host. The lock file lives in `/var/run/importer.lock`.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "quotes-and-filler",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0038549800000000005,
+   "turns": 6,
+   "error": "",
+   "sample": "To start the importer, set \"mode\" to 'fast' in `import.toml`. Because the importer holds a lock, only one instance can run per host. The lock file lives in `/var/run/importer.lock`.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "quotes-and-filler",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00349306,
+   "turns": 5,
+   "error": "",
+   "sample": "To start the importer, set \"mode\" to \"fast\" in `import.toml`. Because the importer holds a lock, only one instance can run per host. The lock file is `/var/run/importer.lock`.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "quotes-and-filler",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.0035180600000000004,
+   "turns": 5,
+   "error": "",
+   "sample": "To start the importer, set \"mode\" to \"fast\" in `import.toml`. The importer holds a lock, so only one instance can run per host. The lock file is `/var/run/importer.lock`.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "release-note-dashes",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0038466200000000007,
+   "turns": 7,
+   "error": "",
+   "sample": "# Release 2.4\n\nThe sync worker now retries a failed upload up to 3 times before it reports an error. The retry delay starts at 30 seconds and doubles each time. Users on the free plan keep the old behavior. They can opt in with the `--retry` flag.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "release-note-dashes",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.0041091999999999995,
+   "turns": 7,
+   "error": "",
+   "sample": "# Release 2.4\n\nThe sync worker now retries a failed upload up to 3 times before it reports an error. The retry delay starts at 30 seconds and doubles after each attempt. Users on the free plan keep the old behavior. They can opt in with the `--retry` flag.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "new",
+   "case": "release-note-dashes",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": true,
+   "skill_used": true,
+   "cost": 0.003975940000000001,
+   "turns": 7,
+   "error": "",
+   "sample": "# Release 2.4\n\nThe sync worker now retries a failed upload up to 3 times before it reports an error. The first retry waits 30 seconds, and each later wait doubles. Free-plan users keep the old behavior. They can opt in with the `--retry` flag.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "release-note-dashes",
+   "run": 1,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00350331,
+   "turns": 5,
+   "error": "",
+   "sample": "# Release 2.4\n\nThe sync worker now retries a failed upload up to 3 times before it reports an error. The retry delay starts at 30 seconds and doubles with each retry. Free-plan users keep the old behavior. They can opt in with the `--retry` flag.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "release-note-dashes",
+   "run": 2,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00343935,
+   "turns": 5,
+   "error": "",
+   "sample": "# Release 2.4\n\nThe sync worker now retries a failed upload up to 3 times before it reports an error. The retry delay starts at 30 seconds and doubles each time. Users on the free plan keep the old behavior. They can opt in with the `--retry` flag.\n"
+  },
+  {
+   "skill": "unslop",
+   "arm": "old",
+   "case": "release-note-dashes",
+   "run": 3,
+   "passed": true,
+   "checks": [
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "max_sentence_words",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    },
+    {
+     "type": "not_matches",
+     "target": "draft.md",
+     "ok": true,
+     "detail": ""
+    }
+   ],
+   "script_used": false,
+   "skill_used": true,
+   "cost": 0.00368736,
+   "turns": 5,
+   "error": "",
+   "sample": "# Release 2.4\n\nThe sync worker retries a failed upload up to 3 times before it reports an error. The delay starts at 30 seconds and doubles after each retry. Free plan users keep the old behavior. They can opt in with the `--retry` flag.\n"
+  }
+ ]
+}

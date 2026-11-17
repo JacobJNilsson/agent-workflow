@@ -1,0 +1,256 @@
+{
+  "skill": "unslop",
+  "note": "Each case gives draft.md with AI tells. The preset adds the scripted prose checks. The facts checks guard against a rewrite that deletes the content.",
+  "cases": [
+    {
+      "id": "release-note-dashes",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "# Release 2.4\n\nThe sync worker now retries a failed upload — up to 3 times — before it reports an error. The retry delay starts at 30 seconds — and doubles each time. Users on the free plan keep the old behavior; they can opt in with the `--retry` flag.\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "30[ -]?s",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "--retry"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "free[- ]plan",
+          "flags": "i"
+        }
+      ]
+    },
+    {
+      "id": "long-sentences",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "The billing service reads every invoice that the import job writes to the invoices table, groups the rows by customer and by currency, converts each group to euros with the rate that the finance team publishes on the first day of the month, and then writes one summary row per customer to the reports table. If the rate for a currency is missing, the service skips that currency and logs a warning that names the currency, which means that the summary for the affected customer stays incomplete until someone adds the rate and reruns the job by hand.\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "euro|EUR",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "reports",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "warn",
+          "flags": "i"
+        }
+      ]
+    },
+    {
+      "id": "ai-vocabulary",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "## Overview\n\nThe cache layer serves as a pivotal component of the platform. Additionally, it boasts a vibrant set of eviction policies that underscore the intricate interplay between memory and latency. It is crucial to note that the default TTL is 600 seconds. Teams can leverage the `ttl` setting to enhance hit rates, and numerous teams utilize it already.\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "600",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "ttl",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "eviction"
+        }
+      ]
+    },
+    {
+      "id": "quotes-and-filler",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "In order to start the importer, set “mode” to ‘fast’ in `import.toml`. Due to the fact that the importer holds a lock, only one instance can run per host. It is important to note that the lock file lives in `/var/run/importer.lock`.\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "import\\.toml"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "/var/run/importer\\.lock"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "fast"
+        }
+      ]
+    },
+    {
+      "id": "code-block-kept",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name. Leave the code block as it is.",
+      "target": "draft.md",
+      "preset": "prose-code",
+      "files": {
+        "draft.md": "To clean the cache — and only the cache — run the command below. It deletes every entry that is older than 7 days and prints the number of entries that it removed, which helps you confirm that the job did something.\n\n```sh\ncache prune --older-than 7d; echo done\n```\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "cache prune --older-than 7d; echo done"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "7[ -]?d",
+          "flags": "i"
+        }
+      ]
+    },
+    {
+      "id": "pr-body-list",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "Orders sometimes show the wrong total — this PR fixes that.\n\n- The total is now computed once, in `Order.total()`, instead of in three places; this removes the rounding drift.\n- Additionally, the checkout page reads the total from the API rather than computing it in the browser, which ensures that the customer sees the same number that the invoice shows after the payment has been captured.\n- The migration backfills 1,204 orders.\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "Order\\.total\\(\\)"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "1,?204",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "checkout",
+          "flags": "i"
+        }
+      ]
+    },
+    {
+      "id": "hyphen-dashes",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "The scheduler wakes every 5 minutes - not every minute as before - and claims at most 20 jobs. A job that fails twice goes to the dead-letter queue -- an operator then decides what to do with it.\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "5[ -]?min",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "20",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "dead[- ]letter",
+          "flags": "i"
+        }
+      ]
+    },
+    {
+      "id": "one-long-sentence",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "The export is fast. It writes 50,000 rows per second to the local disk. When the disk is full the export stops at the last complete row and exits with code 3 so that a wrapper script can free space and start the export again from the row where it stopped without losing data. The log shows the row number.\n"
+      },
+      "checks": [
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "50,?000",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "\\b3\\b",
+          "flags": "i"
+        },
+        {
+          "type": "matches",
+          "target": "draft.md",
+          "pattern": "row",
+          "flags": "i"
+        }
+      ]
+    },
+    {
+      "id": "long-doc-mixed",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "# Alerting guide\n\n## Overview\n\nThe alerting module serves as the backbone of our on-call process, and it ensures that the right person hears about an incident within 2 minutes of the first failed health check, which the probe runs every 20 seconds against each of the 14 production services.\n\n## Routing\n\nAdditionally, every alert carries a severity from 1 to 4 — severity 1 pages the primary on-call; severity 2 pages the secondary. Alerts of severity 3 and 4 go to the `#ops-low` channel and nobody is paged, because they rarely need a human to act within the hour.\n\n## Silencing\n\nIn order to silence an alert, run `alertctl silence <id> --for 2h`. Due to the fact that silences hide real failures, a silence expires after at most 24 hours, and the tool prints a reminder that names the alert, the person who created the silence, and the time when the silence ends so that the next shift can see it.\n"
+      },
+      "checks": [
+        {"type": "matches", "target": "draft.md", "pattern": "2 minutes|two minutes", "flags": "i"},
+        {"type": "matches", "target": "draft.md", "pattern": "20[ -]?s", "flags": "i"},
+        {"type": "matches", "target": "draft.md", "pattern": "alertctl silence <id> --for 2h"},
+        {"type": "matches", "target": "draft.md", "pattern": "#ops-low"},
+        {"type": "matches", "target": "draft.md", "pattern": "24[ -]?h", "flags": "i"}
+      ]
+    },
+    {
+      "id": "many-long-sentences",
+      "prompt": "Use the unslop skill to edit draft.md. Save the result in draft.md. Keep every fact, number, and name.",
+      "target": "draft.md",
+      "preset": "prose",
+      "files": {
+        "draft.md": "When a user signs up, the service creates an account row, sends a confirmation email that contains a link which expires after 48 hours, and schedules a reminder that runs 24 hours later if the user has not yet clicked the link. If the user clicks the link after the account has expired, the service shows an error page that offers to send a new link, and it deletes the old account row so that the email address can register again without a support ticket. The cleanup job runs every night at 02:00 UTC, scans the accounts table for rows that stayed unconfirmed for more than 7 days, and removes them together with any files that the user uploaded in the meantime, which keeps the storage bill predictable.\n"
+      },
+      "checks": [
+        {"type": "matches", "target": "draft.md", "pattern": "48[ -]?h", "flags": "i"},
+        {"type": "matches", "target": "draft.md", "pattern": "02:00"},
+        {"type": "matches", "target": "draft.md", "pattern": "7 days|seven days", "flags": "i"},
+        {"type": "matches", "target": "draft.md", "pattern": "24[ -]?h", "flags": "i"}
+      ]
+    }
+  ]
+}

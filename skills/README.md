@@ -12,9 +12,9 @@ when a prompt matches, or when I type `/<name>`.
 | `review-loop` | Review, fix, check the fix until clean. One full review, then fix checks, no push between rounds, three round cap. A separate agent tries to refute each finding before a fix. Nits go to the user, not to a fix round. Owns the mechanics. `review-code` owns the criteria. |
 | `review-pr` | Run `review-code` against a GitHub PR and stage the findings as one pending review. |
 | `technical-writing` | The writing standard for all lasting text. Diátaxis modes, Google developer style, ASD-STE100, Global English. Adapted from pstack (cursor/plugins, MIT). |
-| `unslop` | The catalog of AI tells to cut from any text. Loaded in every session from the global `AGENTS.md`. From pstack (cursor/plugins, MIT). |
+| `unslop` | The catalog of AI tells to cut from any text. Loaded in every session from the global `AGENTS.md`. Bundles `prose_check.py`, which finds the mechanical tells. From pstack (cursor/plugins, MIT). |
 | `copy-review` | Review prose when the user explicitly requests it. Routine work uses the author's final unslop pass. A spec repo can bind this skill to a glossary. |
-| `commit-message` | Conventional Commits, why before what, cold reader test. |
+| `commit-message` | Conventional Commits, why before what, cold reader test. Bundles `check_commit.py` for the format rules. |
 | `pr-description` | Short PR text, why and what, no file lists. |
 | `why` | The reason behind code, a change, or a review comment: commit bodies via the bundled `git-why` script, then the PR thread, issues, the spec repo, and logs. Reports found, inferred, and unknown apart. |
 | `grilling` | Interview the user in numbered rounds with a recommended answer each until the plan has no silent assumptions. Step 1 of `way-of-working`. Adapted from Matt Pocock (MIT). |
