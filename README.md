@@ -131,6 +131,31 @@ rules.
 - `git-why`: prints the commit messages behind a line range instead of a
   blame table. The `why` skill bundles it. https://github.com/JacobJNilsson/git-why
 
+## Scripts in skills, and the evals that prove them
+
+An agent does some steps by hand each time, such as counting words, checking a commit subject, or building a review payload. Each such step belongs in a tested script inside the skill folder. `SKILL.md` then says "run the script". `docs/skill-scripts-audit.md` ranks the candidates for every skill. The idea comes from Kent C. Dodds' talk "What I Changed to Beat a Million-Install AI Skill".
+
+A script must earn its place. `evals/` runs the same cases with the old and the new skill, grades the output with scripts, and reports a pass rate for each. Keep a script only if the pass rate rises or stays equal and `SKILL.md` gets shorter. Current results are in `evals/results/`.
+
+### Add a script to a skill
+
+1. Pick a step from `docs/skill-scripts-audit.md`. Prefer a step that a regular expression, a counter, or an exit code can decide.
+2. Put the script in `skills/<skill>/scripts/`. Use the Python 3.12 standard library or POSIX sh. Install nothing, and keep it working on Linux and on macOS.
+3. Print one finding per line with a location. Exit with 0 when clean, 1 on a finding, and 2 on a usage error. Say in the docstring what the script cannot judge.
+4. Put the tests next to it, as `test_<script>.py`, and run them with `python3 -m unittest discover -s skills/<skill>/scripts`.
+5. Edit `SKILL.md` to call it as `scripts/<name> <args>` from the skill folder, the way `decision-log` calls `scripts/log.sh`. Move the rules that the script now checks out of the prose, and mark them "(script)".
+6. Write 5 to 10 cases in `evals/cases/<skill>.json`, run `python3 evals/run.py run <skill>`, and put the numbers in `evals/results/<skill>.md`. If the pass rate falls, say so and keep the old skill.
+
+### Run the eval
+
+```sh
+python3 evals/run.py run unslop             # old (main) against new (working tree), 3 runs per case
+python3 evals/run.py report unslop          # the table from the saved runs
+python3 -m unittest discover -s evals       # tests for the harness
+```
+
+It calls `claude -p` with the fast model from `config/models.env`. The repo's limit is 200 calls in total, and `evals/results/ledger.tsv` counts them. `evals/README.md` explains the case format and why the repo has its own harness.
+
 ## Adopt it
 
 1. Copy `instructions/global/AGENTS.md` to `~/AGENTS.md` and
