@@ -27,6 +27,7 @@ when a prompt matches, or when I type `/<name>`.
 | `git-rebase` | Interactive rebase through `GIT_SEQUENCE_EDITOR`, no editor. |
 | `commit-gate` | A tracked pre-commit hook that blocks a commit when lint, build, or tests fail. One install target, same targets as CI. |
 | `godebt` | Measure structural debt in a Go module with the `godebt` CLI. Save a report before a change and check that the change does not raise the index. |
+| `writing-skills` | Write or improve a skill: when a skill is the right tool, the description as triggers, short `SKILL.md` with references, tested scripts, evals, and a checklist. Ships `check_skill.py`, a linter for a skill folder. |
 
 `~/.agents/skills/<name>` is a symlink into this directory for every skill here, so the repo is the source and the live copy at once.
 
@@ -42,6 +43,10 @@ explains it, plus the check that fails when the two drift apart. A skill points
 at its declaration; the declaration points back at the skill.
 
 ## Writing a skill
+
+The `writing-skills` skill holds the full guide. Run
+`python3 skills/writing-skills/scripts/check_skill.py skills/<name>` on a
+skill before you commit it. These are the short rules:
 
 - Keep the description short and put the trigger phrases in it. The
   agent decides from the description alone.
