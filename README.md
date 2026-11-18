@@ -73,7 +73,7 @@ The `way-of-working` skill is the spine. For a task that changes code:
 
 Skills that carry each step: `way-of-working`, `grilling`,
 `review-code`, `review-loop`, `technical-writing`, `unslop`,
-`code-shape`, `decision-log`, `commit-message`, `pr-description`, `git-rebase`. See `skills/README.md` for the full list.
+`code-shape`, `decision-log`, `commit-message`, `pr-description`, `git-rebase`, `godebt`. See `skills/README.md` for the full list.
 
 ## The rules that matter most
 

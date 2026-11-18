@@ -26,6 +26,7 @@ when a prompt matches, or when I type `/<name>`.
 | `implement-issue` | Pick up the next labelled GitHub issue, implement or investigate, open a reviewed PR. |
 | `git-rebase` | Interactive rebase through `GIT_SEQUENCE_EDITOR`, no editor. |
 | `commit-gate` | A tracked pre-commit hook that blocks a commit when lint, build, or tests fail. One install target, same targets as CI. |
+| `godebt` | Measure structural debt in a Go module with the `godebt` CLI. Save a report before a change and check that the change does not raise the index. |
 
 `~/.agents/skills/<name>` is a symlink into this directory for every skill here, so the repo is the source and the live copy at once.
 

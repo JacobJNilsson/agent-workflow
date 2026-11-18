@@ -48,7 +48,7 @@ Rule numbers are stable ids that other skills cite. A removed rule leaves a gap.
 
 ### Filler
 
-23. **Filler phrases.** "In order to" becomes "To". "Due to the fact that" becomes "Because". "It is important to note that" gets deleted.
+23. **Filler phrases.** "In order to" becomes "To". "Due to the fact that" becomes "Because". "It is important to note that" gets deleted. "On its own" gets deleted, or replaced by what is left out: "answers his question on its own" becomes "answers his question", and "each step can be rolled back on its own" becomes "each step can be rolled back without the other".
 24. **Excessive hedging.** "could potentially possibly be argued that it might" becomes "may".
 25. **Generic conclusions.** "The future looks bright." State specific plans or facts.
 
