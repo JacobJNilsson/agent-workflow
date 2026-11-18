@@ -8,7 +8,7 @@ when a prompt matches, or when I type `/<name>`.
 | --- | --- |
 | `way-of-working` | Coordinate a code change through a spec, a code sketch, worktrees, a review loop, the author's final unslop pass, and a PR. |
 | `code-shape` | Sketch the functions, packages, and tests of a change before it is built. Functions first, then a search for code to reuse, then packages. The size of the change sets the effort. Exported signatures bind the implementation, and private helpers stay free. Step 2 of `way-of-working`. |
-| `review-code` | Review a change against the task, the repo rules, and the tests. Cut exported names, packages, and options that nobody needs, and delete code the change left unused. Severity levels and a verdict. Used on its own, and by `review-loop` and `review-pr`. |
+| `review-code` | Review a change against the task, the repo rules, `REVIEW.md`, and the tests. Find tests that lie. Cut exported names, packages, and options that nobody needs, and delete code the change left unused. Severity levels and a verdict. Used on its own, and by `review-loop` and `review-pr`. |
 | `review-loop` | Review, fix, check the fix until clean. One full review, then fix checks, no push between rounds, three round cap. A separate agent tries to refute each finding before a fix. Nits go to the user, not to a fix round. Owns the mechanics. `review-code` owns the criteria. |
 | `review-pr` | Run `review-code` against a GitHub PR and stage the findings as one pending review. |
 | `technical-writing` | The writing standard for all lasting text. Diátaxis modes, Google developer style, ASD-STE100, Global English. Adapted from pstack (cursor/plugins, MIT). |
@@ -20,7 +20,7 @@ when a prompt matches, or when I type `/<name>`.
 | `grilling` | Interview the user in numbered rounds with a recommended answer each until the plan has no silent assumptions. Step 1 of `way-of-working`. Adapted from Matt Pocock (MIT). |
 | `decision-log` | One TSV row per decision (what, why, evidence, result) for long or unattended runs. Adapted from pstack (MIT). |
 | `code-comments` | Which code gets a comment and what it must answer: purpose, when empty, the rule a test file checks, the reason behind a number. Checked as a cold reader. |
-| `legible-code` | Rules for code a second reader follows without the author: tests show the calls, no test-only doors, errors are values, names say the effect, no abbreviations. |
+| `legible-code` | Rules for code a second reader follows without the author: tests show the calls, no test-only doors, errors are values, names say the effect, no abbreviations. Defines the terms that reviews use. |
 | `website-copy-review` | Review the words on a website: conversion path first, then claims, then copy. |
 | `layered-graph-layout` | Rules for a readable drawing of a directed graph with many nodes per rank. |
 | `implement-issue` | Pick up the next labelled GitHub issue, implement or investigate, open a reviewed PR. |

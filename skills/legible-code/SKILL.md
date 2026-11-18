@@ -8,6 +8,33 @@ description: Rules for code that a second reader can follow without the author. 
 The reader is a colleague who opens the package cold. Every rule below
 serves that reader. Apply them while writing, and check them in review.
 
+## Words for these rules
+
+These terms name a pattern in a few words. Use them in code, briefs, and
+findings with the meaning below, and with no other meaning.
+
+- **Deep module.** A package or type with a small public API over a lot of
+  behaviour. A caller learns little and gets much.
+- **Shallow module.** A package or type whose public API is about as large as
+  the code behind it. A function that only passes its arguments on is the
+  smallest case.
+- **Single source of truth.** One place holds a fact, such as a word, a limit,
+  or a rule. Every other place reads the fact from there.
+- **Fake.** A stand-in for a real dependency in a test. A mock and a stub are
+  fakes too.
+- **Seam.** A field or a parameter where a test puts a fake in place of a real
+  dependency. The constructor sets the real one.
+- **Test-only door.** Code that exists only so that a test can reach private
+  state.
+- **Tautological test.** A test that takes its want from the code under test,
+  so it passes whatever the code does.
+- **Structure-sensitive test.** A test that fails when private code changes
+  and nothing that a caller sees changes.
+- **Drifted fake.** A fake that answers differently from the real dependency,
+  so the test passes and the real run fails.
+
+The `review-code` skill holds the probe for each kind of lying test.
+
 ## Tests show the calls
 
 - A test body shows the package's public calls. `Write`, `Mark` and

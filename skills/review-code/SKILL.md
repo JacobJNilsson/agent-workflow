@@ -12,9 +12,10 @@ You report what you find. You do not fix it.
 
 ## Read before you judge
 
-1. The repo rules: `AGENTS.md`, `STYLEGUIDE.md`, and anything they point to. A
-   finding that contradicts a repo rule is real. A finding that ignores one is
-   noise.
+1. The repo rules: `AGENTS.md`, `REVIEW.md`, `STYLEGUIDE.md`, and anything
+   they point to. `REVIEW.md` holds the rules that a reviewer checks in this
+   repo. A finding that contradicts a repo rule is real. A finding that
+   ignores one is noise.
 2. The task or spec the change claims to satisfy.
 3. The diff. For a PR, review the local branch. What GitHub shows is stale once
    anyone pushes.
@@ -22,8 +23,10 @@ You report what you find. You do not fix it.
    depend on code that already exists, so you have to read it.
 5. The tests over the changed code. Run them if you can. Then read each test
    the change adds as a colleague who opens the file cold, against the test
-   rules of the `legible-code` skill. Those rules count as repo rules. Wiring
-   that repeats across test bodies is a finding.
+   rules of the `legible-code` skill. Those rules count as repo rules. Check
+   each test that the change adds or changes for the three kinds of lying
+   test in "Find the tests that lie". Wiring that repeats across test bodies
+   is a finding.
 
 ## What counts as a finding
 
@@ -52,6 +55,114 @@ finding.
 
 The list above covers requests that add code or move it. A request to delete
 code, or to unexport a name, is a size finding. The next section covers those.
+
+## Find the tests that lie
+
+A green test can lie. It passes, and it would still pass if the code were
+wrong. Check each test that the change adds or changes for the three kinds
+below. Each one is a `concern`. Name the kind in the finding, and give the
+probe that proves it. The `legible-code` skill defines the names.
+
+### A tautological test restates the code
+
+The test takes its want from the code under test. It copies a literal from
+the code, or it builds the want with the function that the code uses. A wrong
+rule then passes, because the test copies the mistake.
+
+Probe: make the code wrong in a way the spec forbids, and keep the copied part
+the same. If the test still passes, it is tautological.
+
+Example: a function builds a prompt from a template file. The test reads the
+same file and checks that the prompt contains each phrase of the file.
+
+```go
+func BuildPrompt() string { return readTemplate("main.md") }
+
+func TestBuildPromptHasRules(t *testing.T) {
+	got := BuildPrompt()
+	for _, phrase := range strings.Split(readTemplate("main.md"), "\n") {
+		if !strings.Contains(got, phrase) {
+			t.Errorf("prompt lacks %q", phrase)
+		}
+	}
+}
+```
+
+The want comes from the template, and the code returns the template. If
+someone adds "Merge by hand on Fridays" to `main.md`, the test still passes.
+
+Fix: take the want from the spec or the task. A test may pin exact words when
+a spec or a decision record names them as the contract. Then the test name
+says so.
+
+### A structure-sensitive test checks how, not what
+
+The test fails when private code changes and nothing that a caller sees
+changes. It counts calls to private functions, reads private fields, walks a
+type with reflection, or matches source text.
+
+Probe: picture a refactor that keeps every result a caller can see. If the
+test fails under that refactor, it is structure-sensitive.
+
+Example: this test comes from a rejected first version of a change. It walks
+every field of `Task` with reflection to prove that an edit keeps the task's
+state.
+
+```go
+func TestEditKeepsState(t *testing.T) {
+	before := Task{Name: "a", State: Running}
+	after := Edit(before, "b")
+	v := reflect.ValueOf(after)
+	for i := 0; i < v.NumField(); i++ {
+		name := v.Type().Field(i).Name
+		if name != "Name" && !reflect.DeepEqual(
+			v.Field(i).Interface(),
+			reflect.ValueOf(before).Field(i).Interface()) {
+			t.Errorf("field %s changed", name)
+		}
+	}
+}
+```
+
+The test reads the layout of the type, not the result of the edit. A new
+private field or a renamed one breaks it, and no caller sees a change. The
+fix compares whole values:
+`want := Task{Name: "b", State: Running}` and `if after != want`.
+
+Fix: assert on what the public call returns, stores, or sends. A call to a
+fake counts as a result only when the call is the effect, such as a request
+to another service.
+
+### A test with a drifted fake cannot fail
+
+The test runs against a fake that answers differently from the real
+dependency. The test passes, and the real run fails.
+
+Probe: for each fake that the test uses, name what the real dependency does in
+the same case. Point at its docs, a recorded response, or a live run. If
+nobody can name it, the fake is a guess.
+
+Example: a tool reads a verdict that an agent reports through a command. The
+test drives a fake agent.
+
+```go
+func fakeAgent(t *testing.T, bin string) {
+	// Calls the tool with plain arguments, outside any sandbox.
+	exec.Command(bin, "report", "done", "looks good").Run()
+}
+```
+
+The real agent runs inside a sandbox. It sent its verdict through a
+here-document, and the sandbox blocked the call before it reached the tool.
+The test passed the whole time, because the fake never met the sandbox.
+
+Fix: copy the fake's answers from the dependency's docs or from a recorded
+response, and say which in the fake's comment. When the case depends on the
+environment, such as a sandbox, run the test in that environment. If you
+cannot, say so in the report.
+
+A test with no assertion cannot fail either. It raises the coverage and
+proves nothing. Report it as a `concern` too.
 
 ## Judge the size
 
@@ -173,7 +284,7 @@ is a function whose last caller the fix deleted.
 | Level | Meaning |
 | --- | --- |
 | `critical` | Wrong behaviour, data loss, a security hole, or a broken contract. |
-| `concern` | A real defect, a missing test on a path this change introduced, a size cut, or code the change left unused. |
+| `concern` | A real defect, a missing test on a path this change introduced, a lying test, a size cut, or code the change left unused. |
 | `nit` | Small and optional. Say what improves and why. |
 
 Size cuts and unused code are concerns, not nits. The review loop never fixes a

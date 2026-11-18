@@ -78,12 +78,12 @@ create the commits. The main loop never writes or edits code itself, not
 even a one-line fix. It investigates, designs, briefs, and judges. Each
 worktree is removed after its branch is pushed.
 
-Every brief carries the repo's AGENTS.md and style guide rules, the
-relevant glossary terms from the spec repo, and the repo's test
-conventions. The harness loads none of that for subagents. Put "read
-<repo>/AGENTS.md and every file it references before writing" in the
-brief, and paste the directly relevant sections verbatim. A review brief
-uses the style guide as its rubric and cites rule names in findings.
+Every brief carries the relevant glossary terms from the spec repo. The
+harness loads no repo file for subagents, so put "read <repo>/AGENTS.md
+and every file it references before writing" in the brief. Do not paste
+the repo's coding rules or test conventions into the brief. The review
+enforces them, because the reviewer reads `AGENTS.md`, `REVIEW.md`, and
+`STYLEGUIDE.md`. A review brief cites rule names in findings.
 
 The spec is not the implementation agent's to change. Every brief states
 it: the agent must not edit, create, or remove the spec, a decision
@@ -138,8 +138,9 @@ whether less code and fewer exported names could reach the goal. A size cut
 is a finding like any other, and goes through the triage below.
 
 The review judges the tests twice: whether they prove the spec, and whether a
-colleague can read them. The brief names the `legible-code` test rules as the
-rubric for the second, and pastes them, since the reviewer does not load them.
+colleague can read them. The reviewer loads `legible-code` and applies its
+test rules as the rubric for the second. It also checks each new test for the
+three kinds of lying test that `review-code` names.
 
 ### Triage the findings before acting on them
 
