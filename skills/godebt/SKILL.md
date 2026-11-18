@@ -9,7 +9,7 @@ description: Measures structural debt in a Go module with the godebt CLI and che
 
 To check a change, save a report before you start and compare the finished code with it. The report lives outside the repository for the length of the task.
 
-If `godebt` is not installed, run `machine/install.sh` from the sfy-setup repo. It installs the pinned version, `v0.4.0`. Never install `@latest`, because `godebt` refuses to compare reports from different versions. If the user only asks about debt, run `godebt audit .` and answer the question.
+If `godebt` is not installed, run `go install github.com/JacobJNilsson/godebt/cmd/godebt@v0.4.0`. The source is at [github.com/JacobJNilsson/godebt](https://github.com/JacobJNilsson/godebt). Install the pinned version `v0.4.0`. Never install `@latest`, because `godebt` refuses to compare reports from different versions. If the user only asks about debt, run `godebt audit .` and answer the question.
 
 ## Check a change
 
