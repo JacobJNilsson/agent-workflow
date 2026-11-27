@@ -1,6 +1,6 @@
 ---
 name: legible-code
-description: Rules for code that a second reader can follow without the author. Use when writing or reviewing Go, tests, or a package API, and when a review says the code is hard to follow, hides its calls, names its mechanism, or has tests that are too long.
+description: Rules for code that a second reader can follow without the author. Use when writing or reviewing Go, tests, or a package API, and when a review says the code is hard to follow, hides its calls, names its mechanism, or has tests that are too long or use testify.
 ---
 
 # Legible code
@@ -39,9 +39,9 @@ The `review-code` skill holds the probe for each kind of lying test.
 
 - A test body shows the package's public calls. `Write`, `Mark` and
   `Recompute` appear in the test, not inside a helper.
-- Helpers do two things: set up (`setup(t)` that builds the store, the
-  graph and the fakes) and assert. A helper that hides the call under
-  test hides what the test proves.
+- A helper sets up, such as `setup(t)` that builds the store, the graph
+  and the fakes. Checks stay in the test body, as the next section says.
+  A helper that hides the call under test hides what the test proves.
 - A test body holds the case, not the wiring. The database, the queue
   client, the worker and the log capture go in one setup helper that the
   file's tests share. The body states the inputs the case is about, makes
@@ -55,6 +55,52 @@ The `review-code` skill holds the probe for each kind of lying test.
 - The want is written out where the test is, with the value of every field
   it compares. A helper that builds the want hides what the test proves,
   even when it saves lines.
+
+## Tests check with the standard library
+
+Go tests check results with the standard library and go-cmp. They do not
+use testify.
+
+- Check an error with `if err != nil { t.Fatalf("<call>: %s", err) }`.
+  The message names the call that failed.
+- Compare with
+  `if d := cmp.Diff(want, got); d != "" { t.Fatalf("<what> diff (-want, +got):\n%s", d) }`.
+  The message states the order of the diff.
+- Assign before you check. The call under test assigns `got` and `err` on
+  its own line. The want is a named variable. Never call a function
+  inside an error check or inside `cmp.Diff`.
+- Do not add testify to a test. In a file that uses testify, write each
+  new or changed test with the standard library. Each change removes some
+  testify, until the file has none.
+- To compare JSON, decode the expected text into one value and the body
+  into another. Decode each on its own line with its own error check.
+  Then compare the two values with `cmp.Diff`. Do not write an assertion
+  helper for it.
+
+Before, the calls hide inside the assertions:
+
+```go
+require.NoError(t, store.Write(ctx, item))
+assert.Equal(t, Item{ID: "a", Count: 3}, mustRead(t, store, "a"))
+```
+
+After, each call has its own line and each check names what it checks:
+
+```go
+err := store.Write(ctx, item)
+if err != nil {
+	t.Fatalf("Write: %s", err)
+}
+
+got, err := store.Read(ctx, "a")
+if err != nil {
+	t.Fatalf("Read: %s", err)
+}
+want := Item{ID: "a", Count: 3}
+if d := cmp.Diff(want, got); d != "" {
+	t.Fatalf("item diff (-want, +got):\n%s", d)
+}
+```
 
 ## A test proves one fact
 

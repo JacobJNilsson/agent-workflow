@@ -26,7 +26,8 @@ You report what you find. You do not fix it.
    rules of the `legible-code` skill. Those rules count as repo rules. Check
    each test that the change adds or changes for the three kinds of lying
    test in "Find the tests that lie". Wiring that repeats across test bodies
-   is a finding.
+   is a finding. Probe each error check and each comparison for a function
+   call inside it. A call there is a finding too.
 
 ## What counts as a finding
 
