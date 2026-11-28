@@ -34,6 +34,38 @@ The user edits descriptions by hand. Before you rewrite a body, fetch the
 current one and keep every difference from your last version. Those
 differences are deliberate edits.
 
+## Picture of the change
+
+Add a small picture when the shape of the change is hard to see in prose. Pick the smallest view that makes the point:
+
+- Pseudocode for logic or an algorithm.
+- A call tree for runtime control flow.
+- A shallow file tree for a change in which file owns what.
+- A diff sketch of one of these when the point is what changes in a shape that already exists.
+
+Keep only the calls, files, and states the reader needs to see the point. Put the picture next to the sentence it supports. A picture shows the shape of the change. It is not a list of changed files.
+
+Leave the picture out when a sentence already makes the point. A one-line change, a renamed symbol, or a bumped version needs none.
+
+A call-tree sketch for a change that sends a rollout's progress to the UI:
+
+```diff
+ startRollout
+   runBatch
++    reportProgress
+   finishRollout
+```
+
+## Risk
+
+End the body with a short risk assessment. It answers two questions.
+
+Is the change a one-way door or a two-way door? A revert walks back a two-way door. A revert cannot walk back a one-way door. Examples are a dropped column, a deleted file in a bucket, a message sent to users, or a public API that clients already call. Name what a revert cannot undo.
+
+What is the blast radius? Name what else the change can break when it goes wrong. Examples are callers of a changed function, consumers of a changed API, other services that read the same table, or the layout of other pages.
+
+Keep it to one or two sentences each. "Two-way door: a revert restores the old retry loop. Blast radius: every job that calls the shared HTTP client."
+
 ## Audience
 
 Write for a reviewer who did not see the conversation that produced the change,
@@ -63,3 +95,5 @@ short: maximum 6 sentences.
 Write the body as you would brief the reviewer in person. "An operator needs
 to see when the batches of a rollout are done" becomes "While a rollout runs,
 someone needs to see how far it has come and which batches failed."
+
+Source: the picture of the change and the risk assessment adapt the `pr` skill by Matt Pocock (https://github.com/mattpocock/skills/blob/main/skills/engineering/pr/SKILL.md, MIT).
